@@ -1,2 +1,3 @@
 # leetcode-javascript
-Leetcode Solution using Javascript
+Leetcode Solutions using Javascript
+By Chihung Yu

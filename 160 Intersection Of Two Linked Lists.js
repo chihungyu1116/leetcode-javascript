@@ -1,9 +1,7 @@
 // Leetcode #160 
-// Name: Intersection of Two Linked Lists 
 // Language: Javascript
 // Problem: https://leetcode.com/problems/intersection-of-two-linked-lists/
-
-
+// Author: Chihung Yu
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
