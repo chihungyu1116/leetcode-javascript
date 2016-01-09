@@ -1,3 +1,7 @@
+// Leetcode 27
+// Language: Javascript
+// Problem: https://leetcode.com/problems/remove-element/
+// Author: Chihung Yu
 /**
  * @param {number[]} A
  * @param {number} elem
