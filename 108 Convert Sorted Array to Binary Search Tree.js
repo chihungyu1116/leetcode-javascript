@@ -25,11 +25,9 @@ var generate = function(nums, start, end){
     var midIndex = start + parseInt((end - start)/2);
     var midVal = nums[midIndex];
     
-    var left = generate(nums, start, midIndex-1);
     var node = new TreeNode(midVal);
-    node.left = left;
-    var right = generate(nums, midIndex+1, end);
-    node.right = right;
+    node.left = generate(nums, start, midIndex-1);
+    node.right = generate(nums, midIndex+1, end);
     
     return node;
 }
