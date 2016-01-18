@@ -1,55 +1,42 @@
-// Leetcode 131
-// Language: Javascript
-// Problem: https://leetcode.com/problems/palindrome-partitioning/
-// Author: Chihung Yu
 /**
  * @param {string} s
- * @returns {string[][]}
+ * @return {string[][]}
  */
 var partition = function(s) {
-    
     var result = [];
-    var list = [];
     
-    if(s === null || s.length === 0){
-        return [];
-    }
+    generate(s, 0, [], result);
     
-    calculate(s, result, list);
     return result;
 };
 
-var isPalindrome = function(s){
-    var i = 0;
-    var j = s.length - 1;
-    
-    while(i < j){
-        if(s[i] !== s[j]){
-            return false;
-        }
-        
-        i++;
-        j--;
-    }
-    
-    return true;
-}
-
-var calculate = function(s, result, list){
-    if(s.length === 0){
-        result.push(list.slice());
+var generate = function(s, index, output, result) {
+    if(index === s.length){
+        result.push(output.slice());
         return;
     }
     
-    for(var i = 1; i <= s.length; i++){
-        var substring = s.substring(0,i);
+    
+    for(var i = index; i < s.length; i++) {
+        var str = s.substring(index, i);
         
-        if(isPalindrome(substring)){
-            list.push(substring);
-            var restSubstring = s.substring(i);
-            
-            calculate(restSubstring, result, list);
-            list.pop();
+        if(isPalindrome(s, index, i)){
+            output.push(s.substring(index, i + 1));
+            generate(s, i + 1, output, result);
+            output.pop();
         }
     }
+}
+
+var isPalindrome = function(s, head, tail) {
+    while(head < tail) {
+        if(s[head] !== s[tail]) {
+            return false;
+        }
+        
+        head++;
+        tail--;
+    }
+    
+    return true;
 }
