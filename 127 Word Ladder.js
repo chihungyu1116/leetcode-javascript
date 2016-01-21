@@ -32,7 +32,6 @@ var ladderLength = function(beginWord, endWord, wordDict) {
         curLvlCnt--;
         
         for(var i = 0; i < cur.length; i++){
-            
             for(var j = 0; j < 26; j++){
                 var char = String.fromCharCode('a'.charCodeAt(0) + j);
                 var word = cur.replaceAt(i,char);
