@@ -40,6 +40,10 @@ var helper = function(n, row, columnForRow, res){
 
 var isValid = function(row, columnForRow){
     for(var i = 0; i < row; i++){
+        // 1. don't have to worry about values on the same column since it will onnly be set once
+        // 2. same column, columnForRow[row] === columnForRow[i]
+        // 3. checking both left and right diagonal, Math.abs(columnForRow[row] - columnForRow[i]) === row - i
+        //   Math.abs(columnForRow[row] - columnForRow[i]) is checking both left and right diagonal
         if(columnForRow[row] === columnForRow[i] || Math.abs(columnForRow[row] - columnForRow[i]) === row - i){
             return false;
         }
