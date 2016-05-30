@@ -1,0 +1,2 @@
+Q: Find Kth smallest/largest in an on sort order
+A: Use quick select! O(n)
