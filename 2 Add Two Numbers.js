@@ -1,3 +1,9 @@
+// You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+// Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+// Output: 7 -> 0 -> 8
+
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -10,6 +16,11 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
+
+
+
+// value reverse helps to asslign the first digit or both linklist
+
 var addTwoNumbers = function(l1, l2) {
     if(l1 === null || l2 === null){
         return l1 || l2;
