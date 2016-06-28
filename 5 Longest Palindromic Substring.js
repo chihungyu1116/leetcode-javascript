@@ -46,12 +46,6 @@ var longestPalindrome = function(s) {
     }    
     
     var result = "";
-
-    // The reason to multiply by 2 is because 
-    // Palindrome can be in two forms
-    // 1. abba There will be case which center has two idenitical charachter,
-    //   And there will be maximum 2*n - 1 such case
-    // 2. aba There will be case which center has only one character
     var len = s.length;
     var left, right;
     
