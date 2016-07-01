@@ -42,6 +42,7 @@ Leetcode Problems in Javascript
 152 Maximum Product Subarray.js
 153 Find Minimum in Rotated Sorted Array.js
 155 Min Stack.js
+159 Longest Substring with At Most Two Disctinct Characters.js
 16 3Sum Closest.js
 160 Intersection Of Two Linked Lists.js
 162 Find Peak Element.js
@@ -75,7 +76,6 @@ Leetcode Problems in Javascript
 21 Merge Two Sorted Lists.js
 211 Add and Search Word - Data structure design.js
 215 Kth Largest Element in an Array.js
-215 Kth Largest Element in an Array.py
 217 Contain Duplicate.js
 219 Contains Duplicate II.js
 22 Generate Parentheses.js
@@ -111,11 +111,13 @@ Leetcode Problems in Javascript
 3 Longest Substring Without Repeating Characters.js
 300 Longest Increasing Subsequence.js
 31 Next Permutation.js
+314 Binary Tree Vertical Order Traversal.js
 318 Maximum Product of Word Lengths My Submissions Question.js
 322 Coin Change.js
 33 Search in Rotated Sorted Array.js
 335 Self Crossing.js
 34 Search for a Range.js
+340 Longest Substring With At Most K Distinct Characters.js
 35 Search Insert Position.js
 36 Valid Sudoku.js
 37 Sudoku Solver.js
@@ -134,6 +136,8 @@ Leetcode Problems in Javascript
 53 Maximum Subarray.js
 54 Spiral Matrix.js
 55 Jump Game.js
+56. Merge Intervals.js
+57. Insert Interval.js
 58 Length of Last Word.js
 59 Spiral Matrix II.js
 61 Rotate List.js
@@ -164,3 +168,11 @@ Leetcode Problems in Javascript
 94 Binary Tree Inorder Traversal.js
 96 Unique Binary Search Trees.js
 98 Validate Binary Search Tree.js
+Hackrank.js
+Javascript Closure Questions.js
+Jump Game II.js
+Rate Limiter.js
+Reverse Integer.js
+String Encoding and Decoding.js
+find kth element in two arrays.js
+flatten nested array.js

@@ -1,28 +1,47 @@
-function* generator() {
-  var rate = 5;
-  var per = 8;
-  var lastTime = Date.now();      
-  var allowance = rate; // unit: messages
+var RATE = 5;
+var PER = 8;
+var SECOND_IN_MS = 1000;
 
-  while(true) {
+function* RateLimiter(rate, per, cbFunc) {
+  var lastTime = Date.now();
+  var rate = rate;
+  var per = per;
+  var allowance = rate;
+  
+  
+  while(true){
     var currentTime = Date.now();
-    var timeElapsed = (currentTime - lastTime)/1000;
-    var lastTime = currentTime;
-    var addedTime = timeElapsed*(rate/per);
-    
-    allowance += addedTime;
+    var elapsedTime = (currentTime - lastTime)/SECOND_IN_MS;    
+    lastTime = currentTime;
+    allowance += elapsedTime*(rate/per);
     
     
-    console.log('allowance',allowance, addedTime);
     if(allowance > rate) {
-      allowance = rate;
-    }
+      allowance = rate; 
+    } 
     
-    if (allowance < 1.0) {
-      yield false;
+    if(allowance < 1.0) {
+      yield cbFunc(false); 
     } else {
-      allowance -= 1.0;
-      yield true;
+      allowance -= 1;
+      yield cbFunc(true);
     }
-  }
+  } 
 }
+
+var rl = RateLimiter(RATE, PER, function(output){
+  console.log(output)
+});
+
+rl.next();
+rl.next();
+rl.next();
+rl.next();
+rl.next();
+
+rl.next();
+
+setTimeout(()=>{
+  rl.next();
+  rl.next();
+},PER/RATE*SECOND_IN_MS);
