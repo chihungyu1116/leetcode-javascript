@@ -1,3 +1,5 @@
+// http://bangbingsyb.blogspot.com/2014/11/leetcode-reverse-linked-list-ii.html
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -12,39 +14,32 @@
  * @return {ListNode}
  */
 var reverseBetween = function(head, m, n) {
-    if(m === n){
+    if(m >= n) {
         return head;
     }
     
-    var step = n - m;
-    var dummy = new ListNode(-1);
+    var dummy = new ListNode(0);
     dummy.next = head;
-    var pre = head = dummy;
+    head = dummy;
     
-    while(m > 1){
-        pre = pre.next;
-        m--;
+    // move head to m - 1 node;
+    for(var i = 0; i < m - 1; i++) {
+        head = head.next;
     }
     
+    var pre = head.next;
     var cur = pre.next;
-    var post = cur.next;
     
-    if(step >= 1){
-        while(step > 0 && post !== null){
-            var temp = post.next;
-            post.next = cur;
-            cur = post;
-            post = temp;
-            step--;
-        }
-        
-        temp = pre.next;
-        pre.next = cur;
-        temp.next = post;
+    for(i = 0; i < n - m; i++) {
+        var tmp = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = tmp;
     }
     
-    // safeG = head;
-    head = head.next;
+    // head.next still point to m
+    head.next.next = cur;
+    head.next = pre;
     
-    return head;
+    return dummy.next; 
 };
