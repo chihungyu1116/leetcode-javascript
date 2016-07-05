@@ -78,17 +78,18 @@
 - 21 Merge Two Sorted Lists.js
 - 211 Add and Search Word - Data structure design.js
 - 215 Kth Largest Element in an Array.js
-- 215 Kth Largest Element in an Array.py
 - 217 Contain Duplicate.js
 - 219 Contains Duplicate II.js
 - 22 Generate Parentheses.js
 - 220 Contains Duplicate III.js
 - 222. Count Complete Tree Nodes.js
 - 223 Rectangle Area.js
+- 224 Basic Calculator.js
 - 225 Implement Stack Using Queues.js
 - 226 Invert Binary Tree.js
 - 228 Summary Ranges.js
 - 229 Majority Element II.js
+- 23 Merge k Sorted Lists.js
 - 231 Power of Two.js
 - 232 Implement Queue using Stacks.js
 - 233 Number of Digit One.js
@@ -96,27 +97,32 @@
 - 235 Lowest Common Ancestor Of a Binary Search Tree.js
 - 236 Lowest Common Ancestor of a Binary Tree.js
 - 237 Delete Node in a Linked List.js
+- 239 Sliding Window Maximum.js
 - 24 Swap nodes in Pairs.js
 - 240 Search a 2D Matrix II.js
 - 241 Different Ways to Add Parentheses.js
 - 242 Valid Anagram.js
 - 249 Group Shifted Strings.js
+- 25 Reverse Nodes in k-Group.js
 - 257 Binary Tree Paths.js
 - 26 Remove Duplicates from Sorted Array.js
 - 263 Ugly Number.js
 - 264 Ugly Number II.js
 - 268 Missing Number.js
+- 269 Alien Dictionary.js
 - 27 Remove Element.js
 - 279. Perfect Squares.js
 - 28 Implement strStr().js
 - 286 Walls and Gates.js
 - 289. Game of Life.js
 - 295 Find Median From Data Stream.js
+- 296 Best Meeting Point.js
 - 297 Serialize and Deserialize Binary Tree My Submissions Question.js
 - 3 Longest Substring Without Repeating Characters.js
 - 300 Longest Increasing Subsequence.js
 - 31 Next Permutation.js
 - 314 Binary Tree Vertical Order Traversal.js
+- 317 Shortest Distance From All Buildings.js
 - 318 Maximum Product of Word Lengths My Submissions Question.js
 - 322 Coin Change.js
 - 33 Search in Rotated Sorted Array.js
@@ -126,6 +132,7 @@
 - 35 Search Insert Position.js
 - 36 Valid Sudoku.js
 - 37 Sudoku Solver.js
+- 371 Sum of Two Integers.js
 - 38 Count and Say.js
 - 39 Combination Sum.js
 - 4. Median of Two Sorted Arrays.js
@@ -179,10 +186,13 @@
 - Data Structure Min Heap.js
 - Disambiguos Actors.js
 - Javascript Closure Questions.js
-- Maximum Sum Rectangular Submatrix in Matrix Dynamic Programming:2D.js
-- README.md
+Maximum Sum Rectangular Submatrix in Matrix Dynamic Programming:2D.- js
+- Parse HTML.js
+- Parse Log Top k Longest Running Job.js
+- Ransom Note From Magazine.js
 - Rate Limiter.js
 - Reverse Integer.js
 - String Encoding and Decoding.js
+- Top k Longest Running Job.js
 - find kth element in two arrays.js
 - flatten nested array.js
