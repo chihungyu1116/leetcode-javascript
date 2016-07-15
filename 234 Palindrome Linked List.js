@@ -26,6 +26,17 @@ var isPalindrome = function(head) {
         fast = fast.next.next;
     }
     
+    // if fast.next === null it's odd
+    // else fast.next !== null it's even
+    // but wether it's odd or even, we want to reverse slow's next
+    // 1 2 3 3 2 1 
+    // slow is pointing at 3 (index 2) and we want to reverse 3 2 1
+    // to 1 2 3 1 2 3
+    // 
+    // 1 2 3 4 3 2 1
+    // slow is pointing at 4 (index 3) and we want to reverse 3 2 1
+    // to 1 2 3 4 1 2 3
+
     var secondHead = slow.next;
     slow.next = null;
     

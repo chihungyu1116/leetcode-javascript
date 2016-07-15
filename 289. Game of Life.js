@@ -12,39 +12,26 @@ var gameOfLife = function(board) {
     
     var rows = board.length;
     var cols = board[0].length;
+    var dirX = [-1, 0, 1, 1, 1, 0,-1,-1];
+    var dirY = [-1,-1,-1, 0, 1, 1, 1, 0];
     
     for(var i = 0; i < rows; i++) {
         for(var j = 0; j < cols; j++) {
             var cur = board[i][j];
             var count = 0;
-            
-            if(i - 1 >= 0 && j -1 >= 0 && (board[i - 1][j - 1])%2 === 1) {
-                count++;
-            }
-            if(i - 1 >= 0 && (board[i - 1][j])%2 === 1) {
-                count++;
-            }
-            if(i - 1 >= 0 && j + 1 < cols && (board[i - 1][j + 1])%2 === 1) {
-                count++;
-            }
-            if(j - 1 >= 0 && (board[i][j - 1])%2 === 1) {
-                count++;
-            }
-            if(j + 1 < cols && (board[i][j + 1])%2 === 1) {
-                count++;
-            }
-            if(i + 1 < rows && j - 1 >= 0 && (board[i + 1][j - 1])%2 === 1) {
-                count++;
-            }
-            if(i + 1 < rows && (board[i + 1][j])%2 === 1) {
-                count++;
-            }
-            if(i + 1 < rows && j + 1 < cols && (board[i + 1][j + 1])%2 === 1) {
-                count++;
+
+            for(var k = 0; k < 8; k++) {
+                var x = i + dirX[k];
+                var y = j + dirY[k];
+                if(x >= 0 && x <= rows && y >= 0 && y <= cols && board[x][y]%2 === 1) {
+                    count++;
+                }
             }
             
             if(board[i][j] === 1) {
                 if(count > 3 || count < 2) {
+
+
                     board[i][j] = 3;
                 }
             } else {

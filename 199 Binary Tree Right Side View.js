@@ -1,7 +1,13 @@
-// Leetcode #199
-// Language: Javascript
-// Problem: https://leetcode.com/problems/binary-tree-right-side-view/
-// Author: Chihung Yu
+// For example:
+// Given the following binary tree,
+//    1            <---
+//  /   \
+// 2     3         <---
+//  \     \
+//   5     4       <---
+// You should return [1, 3, 4].
+
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -14,37 +20,34 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    var answer = [];
-
-    if(root === null){
-        return answer;
+    var result = [];
+    
+    if(root === null) {
+        return result;
     }
-
-    var queue = [];
+    
+    queue = [];
     queue.push(root);
-    var curLvlCnt = queue.length;
-    var nextLvlCnt = 0;
     
-    while(queue.length !== 0){
-        var node = queue.shift();
-        curLvlCnt--;
+    while(queue.length > 0) {
+        var len = queue.length;
         
-        if(node.left){
-            queue.push(node.left);
-            nextLvlCnt++;
+        for(var i = 0; i < len; i++) {
+            var node = queue.shift();
+            
+            if(node.left) {
+                queue.push(node.left);
+            }
+            
+            if(node.right) {
+                queue.push(node.right);
+            }
+            
+            if(i === len - 1) {
+                result.push(node.val);
+            }
         }
-        if(node.right){
-            queue.push(node.right);
-            nextLvlCnt++;
-        }
-        
-        if(curLvlCnt <= 0){
-            answer.push(node.val);
-            curLvlCnt = nextLvlCnt;
-            nextLvlCnt = 0;
-        }
-        
     }
     
-    return answer;
-}
+    return result;
+};

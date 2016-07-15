@@ -39,7 +39,7 @@ class MaxHeap {
     var arr = this.arr;
 
     while(n > 0) {
-      var parentN = Math.floor((n + 1)/2) - 1; // [1,2,3] 1 as root 2 as left child and 3 as right child      2 has idx = 1 and 3 has idx = 2    1/2 will result in parent idx = 0 and 2/2 will result in parent idx = 1. So we need to add one to them and -1 at the end
+      var parentN = Math.floor(n/2); // [3,2,1] 3 as root, 2 as left child and 1 as right child      2 has idx = 1 and 1 has idx = 2    1/2 will result in parent idx = 0 and 2/2 will result in parent idx = 1. So we need to add one to them and -1 at the end
 
       if(arr[parentN] > arr[n]) {
         break;
@@ -60,8 +60,8 @@ class MaxHeap {
     while(true) {
       
       var swap = null;
-      var child2N = (n+1)*2; // root = 0 right child idx is (0 + 1)*2 = 2
-      var child1N = child2N - 1; // right child idx - 1 = 1 for root's left child
+      var child2N = n*2 + 2; // root = 0 right child idx is (0 + 1)*2 = 2
+      var child1N = n*2 + 1; // right child idx - 1 = 1 for root's left child
       
       if(child1N < len && arr[child1N] > val) {
         swap = child1N;
@@ -90,6 +90,7 @@ m.add(2);
 m.add(3);
 m.add(3);
 m.add(3);
+m.add(4);
 m.add(3);
 m.add(3);
 
@@ -98,6 +99,7 @@ m.add(4);
 m.add(4);
 
 console.log(m.arr);
+console.log(m.pop());
 console.log(m.pop());
 console.log(m.pop());
 console.log(m.pop());

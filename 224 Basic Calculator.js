@@ -1,3 +1,6 @@
+// http://yucoding.blogspot.com/2015/10/leetcode-question-basic-calculator.html
+// http://blog.welkinlan.com/2015/09/06/basic-calculator-i-ii-leetcode-java/
+
 /**
 Implement a basic calculator to evaluate a simple expression string.
 

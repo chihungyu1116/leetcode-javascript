@@ -51,3 +51,41 @@ var numDecodings = function(s) {
     
     return nums[s.length];
 };
+
+
+
+// Using recusion
+// It also store all the possible combination
+var numDecodings = function(s) {
+    var result = [];
+    
+    function traverse(s, beg, end, cur) {
+        if(end > s.length) {
+          return 
+        }
+    
+        
+        var str = s.substring(beg, end);
+        var num = parseInt(str);
+        
+        if(isNaN(num) || num === 0 || num > 26) {
+          return;
+        }
+      
+        cur.push(str);
+      
+        if(end === s.length){
+          result.push(cur.slice());
+          return;
+        }
+      
+        traverse(s, end, end + 1, cur);
+        traverse(s, end, end + 2, cur);
+        cur.pop();
+    }
+  
+    traverse(s, 0, 1, []);
+    traverse(s, 0, 2, []);
+  
+    return result.length;
+};

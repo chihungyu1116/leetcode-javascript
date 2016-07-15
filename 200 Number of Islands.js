@@ -1,51 +1,54 @@
+// Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+// Example 1:
+
+// 11110
+// 11010
+// 11000
+// 00000
+// Answer: 1
+
+// Example 2:
+
+// 11000
+// 11000
+// 00100
+// 00011
+// Answer: 3
 /**
  * @param {character[][]} grid
  * @return {number}
  */
 var numIslands = function(grid) {
+    var visited = [];
+    var row = grid.length;
+    
+    if(!grid || row === 0) {
+        return 0;
+    }
+    
+    var col = grid[0].length;
     var count = 0;
-    
-    var rows = grid.length;
-    
-    if(rows === 0){
-        return count;
-    }
-    
-    var cols = grid[0].length;
-    
-    if(cols === 0) {
-        return count;
-    }
-    
-    for(i = 0; i < rows; i++) {
-        for(var j = 0; j < cols; j++) {
-            if(grid[i][j] === "1") {
+    for(var i = 0; i < row; i++) {
+        for(var j = 0; j < col; j++) {
+            if(grid[i][j] === '1') {
                 count++;
-                 walk(grid, i, j, rows, cols);
+                traverse(i, j, grid, row, col);    
             }
         }
     }
+    
     return count;
 };
 
-var walk = function(grid, x, y, rows, cols) {
-    if(grid[x][y] === "1") {
-        grid[x][y] = "0";    
-    }
-
-    if((x + 1) < rows && grid[x+1][y] === "1") {
-        walk(grid, x + 1, y, rows, cols);    
-    }
+var traverse = function(i, j, grid, row, col) {
+    if((0 <= i &&  i < row) && (0 <= j && j < col) && grid[i][j] === '1') {
+        grid[i][j] = '2';
     
-    if((x - 1) >= 0 && grid[x-1][y] === "1") {
-        walk(grid, x - 1, y, rows, cols);    
-    }
-    
-    if((y + 1) < cols && grid[x][y+1] === "1") {
-        walk(grid, x, y + 1, rows, cols);    
-    }
-    
-    if((y - 1) >= 0 && grid[x][y-1] === "1") {
-        walk(grid, x, y - 1, rows, cols);    
+        
+        traverse(i + 1, j, grid, row, col);
+        traverse(i, j + 1, grid, row, col);
+        traverse(i - 1, j, grid, row, col);
+        traverse(i, j - 1, grid, row, col);
     }
 }

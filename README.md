@@ -22,7 +22,9 @@
 - 120 Triangle.js
 - 121 Best Time to Buy and Sell Stock.js
 - 122 Best Time to Buy and Sell Stock II.js
+- 123 Best Time to Buy and Sell Stock III.js
 - 124 Binary Tree Maximum Path Sum.js
+- 126 Word Ladder II.js
 - 127 Word Ladder.js
 - 129 Sum Root to Leaf Numbers.js
 - 13 Roman to Integer.js
@@ -30,6 +32,7 @@
 - 133 Clone Graph.js
 - 136 Single Number.js
 - 137 Single Number II.js
+- 138 Copy List With Random Pointer.js
 - 139 Word Break.js
 - 14 Longest Common Prefix.js
 - 140 Word Break II.js
@@ -57,6 +60,8 @@
 - 172 Factorial Trailing Zeroes.js
 - 173 Binary Search Tree Iterator.js
 - 179 Largest Number.js
+- 186 Reverse Words in a String II.js
+- 188 Best Time to Buy and Sell Stock IV.js
 - 189 Rotate Array.js
 - 19 Remove Nth Node From End of List.js
 - 190 Reverse Bits.js
@@ -77,6 +82,7 @@
 - 209 Minimum Size Subarray Sum.js
 - 21 Merge Two Sorted Lists.js
 - 211 Add and Search Word - Data structure design.js
+- 213 House Robber II.js
 - 215 Kth Largest Element in an Array.js
 - 217 Contain Duplicate.js
 - 219 Contains Duplicate II.js
@@ -97,6 +103,7 @@
 - 235 Lowest Common Ancestor Of a Binary Search Tree.js
 - 236 Lowest Common Ancestor of a Binary Tree.js
 - 237 Delete Node in a Linked List.js
+- 238 Product of Array Except Self.js
 - 239 Sliding Window Maximum.js
 - 24 Swap nodes in Pairs.js
 - 240 Search a 2D Matrix II.js
@@ -104,10 +111,13 @@
 - 242 Valid Anagram.js
 - 249 Group Shifted Strings.js
 - 25 Reverse Nodes in k-Group.js
+- 256 Paint House.js
 - 257 Binary Tree Paths.js
 - 26 Remove Duplicates from Sorted Array.js
 - 263 Ugly Number.js
 - 264 Ugly Number II.js
+- 265 Paint House II.js
+- 266 Palindrome Permutation.js
 - 268 Missing Number.js
 - 269 Alien Dictionary.js
 - 27 Remove Element.js
@@ -120,13 +130,16 @@
 - 297 Serialize and Deserialize Binary Tree My Submissions Question.js
 - 3 Longest Substring Without Repeating Characters.js
 - 300 Longest Increasing Subsequence.js
+- 307 Range Sum Query - Mutable.js
 - 31 Next Permutation.js
 - 314 Binary Tree Vertical Order Traversal.js
 - 317 Shortest Distance From All Buildings.js
 - 318 Maximum Product of Word Lengths My Submissions Question.js
+- 320 Generalized Abbreviation.js
 - 322 Coin Change.js
 - 33 Search in Rotated Sorted Array.js
 - 335 Self Crossing.js
+- 337 House Robber III.js
 - 34 Search for a Range.js
 - 340 Longest Substring With At Most K Distinct Characters.js
 - 35 Search Insert Position.js
@@ -137,9 +150,11 @@
 - 39 Combination Sum.js
 - 4. Median of Two Sorted Arrays.js
 - 40 combination Sum II.js
+- 42 Trapping Rain Water.js
 - 43 Multiply Strings.js
 - 45 Jump Game II.js
 - 46 Permutations.js
+- 47 Permutations II.js
 - 48 Rotate Image.js
 - 49 Anagrams.js
 - 49 Group Anagrams.js
@@ -167,6 +182,7 @@
 - 74 Search a 2D Matrix.js
 - 75 Sort Colors.js
 - 77 Combinations.js
+- 78 Subsets.js
 - 8 String to Integer (atoi).js
 - 80 Remove Duplicates from Sorted Array II.js
 - 81 Search in Rotated Sorted Array II.js
@@ -174,6 +190,7 @@
 - 83 Remove Duplicates from Sorted List.js
 - 86 Partition List.js
 - 88 Merge Sorted Array.js
+- 89 Gray Code.js
 - 9 Palindrome Number.js
 - 90 Subsets II.js
 - 91 Decode Ways.js
@@ -182,17 +199,26 @@
 - 94 Binary Tree Inorder Traversal.js
 - 96 Unique Binary Search Trees.js
 - 98 Validate Binary Search Tree.js
+- Bean Probability.js
+- Conjuct Names With Limit.js
+- Convert Binary Search Tree To Doubly Linked List.js
+- Custom Tree Problem.js
 - Data Structure Max Heap.js
 - Data Structure Min Heap.js
 - Disambiguos Actors.js
 - Javascript Closure Questions.js
-Maximum Sum Rectangular Submatrix in Matrix Dynamic Programming:2D.- js
+- Log Hits.js
+- Maximum Sum Rectangular Submatrix in Matrix Dynamic Programming:2D.js
+- Merge Two Lists Into Sorted List.js
 - Parse HTML.js
 - Parse Log Top k Longest Running Job.js
+- Parse String Into Array.js
 - Ransom Note From Magazine.js
 - Rate Limiter.js
 - Reverse Integer.js
+- Snake And Ladder.js
 - String Encoding and Decoding.js
 - Top k Longest Running Job.js
+- ZigZag Conversion.js
 - find kth element in two arrays.js
 - flatten nested array.js

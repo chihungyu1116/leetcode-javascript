@@ -13,8 +13,8 @@ function parseHtml(htmlArr) {
     } else {
       var map = {};
       map[htmlTag] = [];
-      stack.push(context);
       context.push(map);
+      stack.push(context);
       context = map[htmlTag];
     }
   }
@@ -52,17 +52,17 @@ console.log(parseHtml(htmlArr));
 [{
   html: [{
     body: [{
-      div: {
-        a: {}
-      }
+      div: [{
+        a: [{}]
+      }]
     },{
-      div: {
-        a: {}
-      }
+      div: [{
+        a: [{}]
+      }]
     },{
-      div: {
-        a: {}
-      }
+      div: [{
+        a: [{}]
+      }]
     }]
   }]
 }]

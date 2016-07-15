@@ -1,57 +1,68 @@
+// Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
+
+// Only one letter can be changed at a time
+// Each intermediate word must exist in the word list
+// For example,
+
+// Given:
+// beginWord = "hit"
+// endWord = "cog"
+// wordList = ["hot","dot","dog","lot","log"]
+// As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog",
+// return its length 5.
+
+// Note:
+// Return 0 if there is no such transformation sequence.
+// All words have the same length.
+// All words contain only lowercase alphabetic characters.
+// Amazon LinkedIn Snapchat Facebook Yelp
+
+
 // Leetcode 127
 // Language: Javascript
 // Problem: https://leetcode.com/problems/word-ladder/
 // Author: Chihung Yu
+
 /**
  * @param {string} beginWord
  * @param {string} endWord
- * @param {set<string>} wordDict
+ * @param {Set} wordList
+ *   Note: wordList is a Set object, see:
+ *   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
  * @return {number}
  */
- 
-String.prototype.replaceAt = function(i, c){
-    return this.substring(0,i) + c + this.substring(i+1);
-};
- 
-var ladderLength = function(beginWord, endWord, wordDict) {
-    if(beginWord === null || endWord === null || beginWord.length !== endWord.length || beginWord.length === 0 || endWord.length === 0){
-        return 0;
-    }  
-    
-    var queue = [];
-    queue.push(beginWord);
+var ladderLength = function(beginWord, endWord, wordList) {
     var visited = new Set();
-    visited.add(beginWord);
-    
+    var queue = [];
     var level = 1;
-    var curLvlCnt = 1;
-    var nextLvlCnt = 0;
+    var letters = 'abcdefghijklmnopqrstuvwxyz';
+    queue.push(beginWord);
+    visited.add(beginWord);    
     
-    while(queue.length !== 0){
-        var cur = queue.shift();
-        curLvlCnt--;
+    while(queue.length > 0) {
         
-        for(var i = 0; i < cur.length; i++){
-            for(var j = 0; j < 26; j++){
-                var char = String.fromCharCode('a'.charCodeAt(0) + j);
-                var word = cur.replaceAt(i,char);
-                
-                if(word === endWord){
-                    return level + 1;
-                }
-                if(wordDict.has(word) && !visited.has(word)){
-                    nextLvlCnt++;
-                    queue.push(word);
-                    visited.add(word);
+        var len = queue.length;
+        
+        for(var i = 0; i < len; i++) {
+            var word = queue.shift();
+            
+            for(var j = 0; j < word.length; j++) {
+                for(var k = 0; k < letters.length; k++) {
+                    var newWord = word.substring(0, j) + letters[k] + word.substring(j + 1);
+                    
+                    if(newWord === endWord) {
+                        return level + 1;
+                    }
+                    if(wordList.has(newWord) && !visited.has(newWord)) {
+                        queue.push(newWord);
+                        visited.add(newWord);
+                    }
                 }
             }
         }
-        if(curLvlCnt === 0){
-            curLvlCnt = nextLvlCnt;
-            nextLvlCnt = 0;
-            level++;
-        }
+        
+        level++;
     }
+    
     return 0;
 };
-

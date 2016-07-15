@@ -16,8 +16,8 @@ var merge = function(A, m, B, n) {
         }
     }
     
-    while(n > 0){
-        A[m+n-1] = B[n-1];
+    while(n > 0) {
+        nums1[n - 1] = nums2[n - 1];
         n--;
     }
 };

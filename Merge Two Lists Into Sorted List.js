@@ -1,5 +1,3 @@
-// Sort a linked list in O(n log n) time using constant space complexity.
-
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -12,6 +10,8 @@
  * @return {ListNode}
  */
  
+// !!! we can concat two list together than use merge sort to sort the merged list
+
 var sortList = function(head) {
     if(head === null) {
         return null;

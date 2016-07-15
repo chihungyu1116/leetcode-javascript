@@ -1,7 +1,3 @@
-// Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and set.
-
-// get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
-// set(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
 class Node {
     constructor(key, val) {
         this.key = key;
@@ -18,7 +14,7 @@ var LRUCache = function(capacity) {
     this.map = new Map();
     this.head = null;
     this.tail = null;
-    this.size = capacity;
+    this.capacity = capacity;
     this.curSize = 0;
 };
 
@@ -27,11 +23,10 @@ var LRUCache = function(capacity) {
  * @returns {number}
  */
 LRUCache.prototype.get = function(key) {
-    if (!this.map.get(key)) {
+    let node = this.map.get(key);
+    if (!node) {
         return -1;
     }
-    
-    let node = this.map.get(key);
     
     if (node === this.head) {
         return node.val;
@@ -70,7 +65,7 @@ LRUCache.prototype.set = function(key, value) {
     }
     
     this.head = newNode;
-    this.curSize++;
+    // this.curSize++;
     
     // update
     if (this.map.get(key)) {
@@ -84,11 +79,9 @@ LRUCache.prototype.set = function(key, value) {
             oldNode.prev.next = oldNode.next;
             oldNode.next.prev = oldNode.prev;
         }
-        
-        this.curSize--;
-        
     } else {
-        if (this.curSize > this.size) {
+        this.curSize++
+        if (this.curSize > this.capacity) {
             //delete tail
             this.map.delete(this.tail.key);
             this.tail = this.tail.prev;
