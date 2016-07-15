@@ -1,21 +1,41 @@
+// Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+
+// Do not allocate extra space for another array, you must do this in place with constant memory.
+
+// For example,
+// Given input array nums = [1,1,2],
+
+// Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn't matter what you leave beyond the new length.
+
+
 /**
- * @param {number[]} A
+ * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function(A) {
-    if(A === null){
+var removeDuplicates = function(nums) {
+    if(!nums || nums.length === 0) {
         return 0;
     }
+  
+    var end = 0;
     
-    var index = 1;
+    // index: 012345678
+    // vals:  111222333
+    // first swap happen when end = 0; i points at index 3 with val 2
+    // end++ becomes end points at index 1 and swap with index 3
+    // after that vals become:
+    // vals:  121122333
+    // i at at index 4 and end is at index 2
     
-    while(index < A.length){
-        if(A[index] === A[index - 1]){
-            A.splice(index, 1);
-        } else{
-            index++;    
+    for(var i = 1; i < nums.length; i++) {
+        if(nums[i] !== nums[end]) {
+            end++;
+            
+            if(i !== end) {
+                nums[end] = nums[i];
+            }
         }
     }
     
-    return A.length;
+    return end+1;
 };
