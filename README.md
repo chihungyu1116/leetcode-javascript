@@ -1,4 +1,5 @@
 # Leetcode Problems and interview problems in Javascript
+
 - 1 Two Sum.js
 - 10 Regular Expresion Matching.js
 - 100 Same Tree.js
@@ -109,6 +110,9 @@
 - 240 Search a 2D Matrix II.js
 - 241 Different Ways to Add Parentheses.js
 - 242 Valid Anagram.js
+- 243 Shortest Word Distance.js
+- 244 Shortest Word Distance II.js
+- 245 Shortest Word Distance III.js
 - 249 Group Shifted Strings.js
 - 25 Reverse Nodes in k-Group.js
 - 256 Paint House.js
@@ -121,6 +125,7 @@
 - 268 Missing Number.js
 - 269 Alien Dictionary.js
 - 27 Remove Element.js
+- 277 Find the Celebrity.js
 - 279. Perfect Squares.js
 - 28 Implement strStr().js
 - 286 Walls and Gates.js
@@ -140,10 +145,13 @@
 - 33 Search in Rotated Sorted Array.js
 - 335 Self Crossing.js
 - 337 House Robber III.js
+- 339 Nested List Weight Sum.js
 - 34 Search for a Range.js
 - 340 Longest Substring With At Most K Distinct Characters.js
 - 35 Search Insert Position.js
 - 36 Valid Sudoku.js
+- 364 Nested List Weight Sum II.js
+- 367 Valid Perfect Square.js
 - 37 Sudoku Solver.js
 - 371 Sum of Two Integers.js
 - 38 Count and Say.js
@@ -181,6 +189,7 @@
 - 72 Edit Distance.js
 - 74 Search a 2D Matrix.js
 - 75 Sort Colors.js
+- 76 Minimum Window Substring.js
 - 77 Combinations.js
 - 78 Subsets.js
 - 8 String to Integer (atoi).js
