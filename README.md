@@ -48,6 +48,7 @@
 - 152 Maximum Product Subarray.js
 - 153 Find Minimum in Rotated Sorted Array.js
 - 155 Min Stack.js
+- 156 Binary Tree Upside Down.js
 - 159 Longest Substring with At Most Two Disctinct Characters.js
 - 16 3Sum Closest.js
 - 160 Intersection Of Two Linked Lists.js
@@ -62,6 +63,7 @@
 - 173 Binary Search Tree Iterator.js
 - 179 Largest Number.js
 - 186 Reverse Words in a String II.js
+- 187 Repeated DNA Sequences.js
 - 188 Best Time to Buy and Sell Stock IV.js
 - 189 Rotate Array.js
 - 19 Remove Nth Node From End of List.js
@@ -85,6 +87,7 @@
 - 211 Add and Search Word - Data structure design.js
 - 213 House Robber II.js
 - 215 Kth Largest Element in an Array.js
+- 215 Kth Largest Element in an Array.py
 - 217 Contain Duplicate.js
 - 219 Contains Duplicate II.js
 - 22 Generate Parentheses.js
@@ -115,9 +118,11 @@
 - 245 Shortest Word Distance III.js
 - 249 Group Shifted Strings.js
 - 25 Reverse Nodes in k-Group.js
+- 254 Factor Combinations.js
 - 256 Paint House.js
 - 257 Binary Tree Paths.js
 - 26 Remove Duplicates from Sorted Array.js
+- 261 Graph Valid Tree.js
 - 263 Ugly Number.js
 - 264 Ugly Number II.js
 - 265 Paint House II.js
@@ -128,6 +133,7 @@
 - 277 Find the Celebrity.js
 - 279. Perfect Squares.js
 - 28 Implement strStr().js
+- 283 Move Zeroes.js
 - 286 Walls and Gates.js
 - 289. Game of Life.js
 - 295 Find Median From Data Stream.js
@@ -148,6 +154,7 @@
 - 339 Nested List Weight Sum.js
 - 34 Search for a Range.js
 - 340 Longest Substring With At Most K Distinct Characters.js
+- 348. Design Tic-Tac-Toe.java
 - 35 Search Insert Position.js
 - 36 Valid Sudoku.js
 - 364 Nested List Weight Sum II.js
@@ -180,6 +187,7 @@
 - 62 Unique Paths.js
 - 63 Unique Paths II.js
 - 64 Minimum Path Sum.js
+- 65 Valid Number.js
 - 66 Plus One.js
 - 67 Add Binary.js
 - 68 Text Justification.js
@@ -222,6 +230,7 @@
 - Parse HTML.js
 - Parse Log Top k Longest Running Job.js
 - Parse String Into Array.js
+- README.md
 - Ransom Note From Magazine.js
 - Rate Limiter.js
 - Reverse Integer.js
