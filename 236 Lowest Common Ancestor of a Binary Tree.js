@@ -30,8 +30,12 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
+
+// Amazon LinkedIn Apple Facebook Microsoft
+// Hide Tags Tree
+// Hide Similar Problems
  
-//  http://www.cnblogs.com/anne-vista/p/4815076.html
+// reference: http://www.cnblogs.com/anne-vista/p/4815076.html
 var lowestCommonAncestor = function(root, p, q) {
     if(root === null || root === p || root === q) {
         return root;

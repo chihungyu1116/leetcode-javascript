@@ -1,3 +1,26 @@
+// Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+
+// For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
+
+//     1
+//    / \
+//   2   2
+//  / \ / \
+// 3  4 4  3
+// But the following [1,2,2,null,3,null,3] is not:
+//     1
+//    / \
+//   2   2
+//    \   \
+//    3    3
+// Note:
+// Bonus points if you could solve it both recursively and iteratively.
+
+// Hide Company Tags LinkedIn Bloomberg Microsoft
+// Hide Tags Tree Depth-first Search Breadth-first Search
+
+
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -10,31 +33,22 @@
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-    if(root === null){
-        return true;
-    }
-    
     var queue = [];
     queue.push(root);
     
-    var temp = [];
-    var curCnt = 1;
-    var nextCnt = 0;
-
-    while(queue.length !== 0){
-        var p = queue.shift();
+    while(queue.length !== 0) {
+        var len = queue.length;
         
-        if(p !== null){
-            temp.push(p.left);
-            temp.push(p.right);
+        if(!isLevelSymmetric(queue)) {
+            return false;
         }
         
-        if(queue.length === 0){
-            if(isPalindrome(temp)){
-                queue = temp;
-                temp = [];
-            } else {
-                return false;
+        for(var i = 0; i < len; i++) {
+            var node = queue.shift();
+            
+            if(node !== null) {
+                queue.push(node.left);
+                queue.push(node.right);
             }
         }
     }
@@ -42,22 +56,18 @@ var isSymmetric = function(root) {
     return true;
 };
 
-
-var isPalindrome = function(arr){
-    var head = 0;
-    var tail = arr.length - 1;
+function isLevelSymmetric(nodes) {
+    var len = nodes.length;
+    var beg = 0;
+    var end = len - 1;
     
-    while(head < tail){
-        if(arr[head] && arr[tail]){
-            if(arr[head].val !== arr[tail].val){
-                return false;
-            }
-        } else if(arr[head] || arr[tail]){
+    while(beg < end) {
+        if(nodes[beg] === null && nodes[end] === null || (nodes[beg] && nodes[end] && nodes[beg].val === nodes[end].val)) {
+            beg++;
+            end--;
+        } else {
             return false;
         }
-        
-        head++;
-        tail--;
     }
     
     return true;

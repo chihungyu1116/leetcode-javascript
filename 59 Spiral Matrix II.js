@@ -1,40 +1,58 @@
+// Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+
+// For example,
+// Given n = 3,
+
+// You should return the following matrix:
+// [
+//  [ 1, 2, 3 ],
+//  [ 8, 9, 4 ],
+//  [ 7, 6, 5 ]
+// ]
+// Hide Tags Array
+// Hide Similar Problems (M) Spiral Matrix
+
+
+
 /**
  * @param {number} n
  * @return {number[][]}
  */
-
 var generateMatrix = function(n) {
-    var m = [];
-    for(var i = 0; i < n; i++){
-        m.push([]);
+    var matrix = [];
+    for(var i = 0; i < n; i++) {
+        matrix.push([]);
     }
-    
-    var level = parseInt(n/2);
+    var x = 0;
+    var y = 0;
     var count = 1;
     
-    for(var l = 0; l < level; l++){
-        var x = l;
-        var y = l;
-        for(x = l; x < n - 1 - l; x++){
-            m[y][x] = count++;
+    while(0 < n) {
+        if(n === 1) {
+            matrix[x][y] = count;
+            break;
         }
         
-        for(y = l; y < n - 1 - l; y++){
-            m[y][x] = count++;
+        for(i = 0; i < n - 1; i++) {
+            matrix[x][y++] = count++;
         }
         
-        for(; x > l; x--){
-            m[y][x] = count++;
+        for(i = 0; i < n - 1; i++) {
+            matrix[x++][y] = count++;
         }
         
-        for(; y > l; y--){
-            m[y][x] = count++;
+        for(i = 0; i < n - 1; i++) {
+            matrix[x][y--] = count++;
         }
+        
+        for(i = 0; i < n - 1; i++) {
+            matrix[x--][y] = count++;
+        }
+        
+        x++;
+        y++;
+        n -= 2;
     }
     
-    if(n%2 === 1){
-        m[level][level] = count;
-    }
-    
-    return m;
-}
+    return matrix;
+};
