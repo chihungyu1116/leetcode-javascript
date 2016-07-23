@@ -32,7 +32,7 @@ var validTree = function(n, edges) {
         }
     }
     
-    return unionFind.unionCount() === 1;
+    return unionFind.count() === 1;
 };
 
 // reference: http://blog.csdn.net/dm_vincent/article/details/7655764
@@ -75,7 +75,7 @@ class UnionFind {
         return this.find(m) === this.find(n);
     }
     
-    unionCount() {
+    count() {
         return this.count;
     }
 }

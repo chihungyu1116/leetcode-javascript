@@ -40,3 +40,6 @@ var evalRPN = function(tokens) {
     
     return stack.pop();
 };
+
+
+console.log(evalRPN([ 12, 12, 12, '*', '+', 3, 4, '-', '+' ] ));
