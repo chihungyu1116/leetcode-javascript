@@ -58,6 +58,7 @@
 - 168 Excel Sheet Column Title.js
 - 169 Majority Element.js
 - 17 Letter Combinations of a Phone Number.js
+- 170 Two Sum III - Data structure design.js
 - 171 Excel Sheet Column Number.js
 - 172 Factorial Trailing Zeroes.js
 - 173 Binary Search Tree Iterator.js
@@ -84,10 +85,10 @@
 - 208 Implement Trie (Prefix Tree).js
 - 209 Minimum Size Subarray Sum.js
 - 21 Merge Two Sorted Lists.js
+- 210 Course Schedule II.js
 - 211 Add and Search Word - Data structure design.js
 - 213 House Robber II.js
 - 215 Kth Largest Element in an Array.js
-- 215 Kth Largest Element in an Array.py
 - 217 Contain Duplicate.js
 - 219 Contains Duplicate II.js
 - 22 Generate Parentheses.js
@@ -118,6 +119,8 @@
 - 245 Shortest Word Distance III.js
 - 249 Group Shifted Strings.js
 - 25 Reverse Nodes in k-Group.js
+- 252 Meeting Rooms.js
+- 253 Meeting Rooms II.js
 - 254 Factor Combinations.js
 - 256 Paint House.js
 - 257 Binary Tree Paths.js
@@ -154,8 +157,9 @@
 - 339 Nested List Weight Sum.js
 - 34 Search for a Range.js
 - 340 Longest Substring With At Most K Distinct Characters.js
-- 348. Design Tic-Tac-Toe.java
+- 349 Intersection of Two Arrays.js
 - 35 Search Insert Position.js
+- 350 Intersection of Two Arrays II.js
 - 36 Valid Sudoku.js
 - 364 Nested List Weight Sum II.js
 - 367 Valid Perfect Square.js
@@ -216,21 +220,26 @@
 - 94 Binary Tree Inorder Traversal.js
 - 96 Unique Binary Search Trees.js
 - 98 Validate Binary Search Tree.js
+- Basic Calculator II.js
+- Basic Calculator III.js
 - Bean Probability.js
+- Can Win.js
 - Conjuct Names With Limit.js
 - Convert Binary Search Tree To Doubly Linked List.js
+- Convert Infix to Reverse Polish Notation.js
 - Custom Tree Problem.js
 - Data Structure Max Heap.js
 - Data Structure Min Heap.js
 - Disambiguos Actors.js
+- Find Duplicate Files.js
 - Javascript Closure Questions.js
 - Log Hits.js
 - Maximum Sum Rectangular Submatrix in Matrix Dynamic Programming:2D.js
 - Merge Two Lists Into Sorted List.js
+- Min CPU Count.js
 - Parse HTML.js
 - Parse Log Top k Longest Running Job.js
 - Parse String Into Array.js
-- README.md
 - Ransom Note From Magazine.js
 - Rate Limiter.js
 - Reverse Integer.js
