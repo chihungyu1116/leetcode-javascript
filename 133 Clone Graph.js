@@ -21,6 +21,12 @@
 //          / \
 //          \_/
 
+// Pocket Gems Google Uber Facebook
+// Hide Tags Depth-first Search Breadth-first Search Graph
+// Hide Similar Problems (H) Copy List with Random Pointer
+
+
+
 /**
  * Definition for undirected graph.
  * function UndirectedGraphNode(label) {
@@ -42,21 +48,12 @@ var cloneGraph = function(graph) {
     }
 
     function dfs(node){
-        var newNode = null;
-        
-        if(visited[node.label]){
-            newNode = visited[node.label];
-        }else{
-            newNode = new UndirectedGraphNode(node.label);
-            visited[node.label] = newNode;
-        }
+        var newNode = visited[node.label] ? visited[node.label] : new UndirectedGraphNode(node.label);
+        visited[node.label] = newNode;
         
         for(var i = 0; i < node.neighbors.length; i++){
-            if(!visited[node.neighbors[i].label]){
-                newNode.neighbors.push(dfs(node.neighbors[i]));
-            }else{
-                newNode.neighbors.push(visited[node.neighbors[i].label]);
-            }
+            var newNeighbor = visited[node.neighbors[i].label] ? visited[node.neighbors[i].label] : dfs(node.neighbors[i]);
+            newNode.neighbors.push(newNeighbor);
         }
         return newNode; 
     }   

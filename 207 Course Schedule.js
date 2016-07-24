@@ -2,6 +2,67 @@
 // Language: Javascript
 // Problem: https://leetcode.com/problems/course-schedule/
 // Author: Chihung Yu
+
+// Non-recursion version 144ms
+// more generic solution to problem that doesn't need information of numCourses and can deal with duplicated prerequisites
+
+/**
+ * @param {number} numCourses
+ * @param {number[][]} prerequisites
+ * @return {boolean}
+ */
+var canFinish = function(numCourses, prerequisites) {
+    var courseWithOtherCoursesDependOn = {};
+    var courseDependsOnOtherCourses = {};
+    
+    prerequisites.forEach((prerequisite)=> {
+        var prereqCourse = prerequisite[1];
+        var courseToTake = prerequisite[0]
+        
+        
+        courseWithOtherCoursesDependOn[prereqCourse] = courseWithOtherCoursesDependOn[prereqCourse] || new Set();
+        courseWithOtherCoursesDependOn[prereqCourse].add(courseToTake);
+        
+        courseDependsOnOtherCourses[prereqCourse] = courseDependsOnOtherCourses[prereqCourse] || new Set();
+        courseDependsOnOtherCourses[courseToTake] = courseDependsOnOtherCourses[courseToTake] || new Set();
+        courseDependsOnOtherCourses[courseToTake].add(prereqCourse);
+    });
+    
+    var courseWithNoDependencies = [];
+    
+    for(var i in courseDependsOnOtherCourses) {
+        if(courseDependsOnOtherCourses[i].size === 0) {
+            courseWithNoDependencies.push(i);
+        }
+    }
+    
+    while(courseWithNoDependencies.length > 0) {
+        var rootCourse = courseWithNoDependencies.shift();
+        
+        if(courseWithOtherCoursesDependOn[rootCourse]) {
+            courseWithOtherCoursesDependOn[rootCourse].forEach((childCourse)=> {
+                courseDependsOnOtherCourses[childCourse].delete(parseInt(rootCourse));
+                
+                if(courseDependsOnOtherCourses[childCourse].size === 0) {
+                    courseWithNoDependencies.push(childCourse + '');
+                }
+            });
+        }
+    }
+    
+    for(i in courseDependsOnOtherCourses) {
+        if(courseDependsOnOtherCourses[i].size !== 0) {
+            return false;
+        }
+    }
+    
+    return true;
+};
+
+
+
+// recursion 132ms
+
 /**
  * @param {number} numCourses
  * @param {number[][]} prerequisites
@@ -53,10 +114,9 @@ var canFinish = function(numCourses, prerequisites) {
         var parent = [];
         var hasCycle = dfs(nodes[i], parent);
 
-        console.log(hasCycle, i, nodes[i], parent)
         if (hasCycle) return false;
     }
     return true;
 };
 
-canFinish(5, [[0,1],[1,2],[1,3],[1,4],[2,3]])
+

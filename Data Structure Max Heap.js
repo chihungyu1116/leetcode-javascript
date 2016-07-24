@@ -1,3 +1,5 @@
+'use strict'
+
 class MaxHeap {
   constructor() {
     this.arr = [];
@@ -11,7 +13,7 @@ class MaxHeap {
     return this.arr.length;
   }
 
-  pop() {
+  pollMax() {
     var arr = this.arr;
     var len = arr.length;
 
@@ -20,7 +22,7 @@ class MaxHeap {
     }
 
     var max = arr[0];
-    arr[0] = arr[len - 1] // swap the last value with max value
+    arr[0] = arr[len - 1] // replace max value with the last value
 
     arr.pop();
 
@@ -39,7 +41,11 @@ class MaxHeap {
     var arr = this.arr;
 
     while(n > 0) {
-      var parentN = Math.floor(n/2); // [3,2,1] 3 as root, 2 as left child and 1 as right child      2 has idx = 1 and 1 has idx = 2    1/2 will result in parent idx = 0 and 2/2 will result in parent idx = 1. So we need to add one to them and -1 at the end
+      // [3,2,1] 3 as root, 2 as left child and 1 as right child 
+      // 2 has idx = 1 and 1 has idx = 2 
+      // 1/2 will result in parent idx = 0 
+      // and 2/2 will result in parent idx = 1. So we need to add one to them and -1 at the end
+      var parentN = Math.floor((n + 1)/2) - 1;
 
       if(arr[parentN] > arr[n]) {
         break;
@@ -84,30 +90,59 @@ class MaxHeap {
 }
 
 var m = new MaxHeap();
-// m.add(4);
+m.add(4);
 m.add(1);
 m.add(2);
-m.add(3);
-m.add(3);
+m.add(1);
+m.add(15);
 m.add(3);
 m.add(4);
 m.add(3);
 m.add(3);
+
+m.add(3);
+m.add(4);
+m.add(-1);
+
+m.add(-1);
+m.add(1);
+m.add(10);
 
 m.add(-1);
 m.add(4);
+m.add(8);
+m.add(9);
+m.add(100);
+m.add(3);
+m.add(7);
+m.add(9);
 m.add(4);
 
 console.log(m.arr);
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
- 
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());
+console.log(m.pollMax());

@@ -64,7 +64,6 @@ var numDecodings = function(s) {
           return 
         }
     
-        
         var str = s.substring(beg, end);
         var num = parseInt(str);
         

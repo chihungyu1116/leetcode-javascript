@@ -1,10 +1,36 @@
+// There is a new alien language which uses the latin alphabet. However, the order among letters are unknown to you. You receive a list of words from the dictionary, where words are sorted lexicographically by the rules of this new language. Derive the order of letters in this language.
+
+// For example,
+// Given the following words in dictionary,
+
+// [
+//   "wrt",
+//   "wrf",
+//   "er",
+//   "ett",
+//   "rftt"
+// ]
+// The correct order is: "wertf".
+
+// Note:
+// You may assume all letters are in lowercase.
+// If the order is invalid, return an empty string.
+// There may be multiple valid order of letters, return any one of them is fine.
+// Hide Company Tags Google Airbnb Facebook Twitter Snapchat Pocket Gems
+// Hide Tags Graph Topological Sort
+// Hide Similar Problems (M) Course Schedule II
+
+/**
+ * @param {string[]} words
+ * @return {string}
+ */
 var alienOrder = function(words) {
     if (words.length === 0) {
         return '';
     }
     
     const len = words.length;
-    let map = {}; // value is the prerequisite of key
+    let requiredCharMap = {}; // value is the prerequisite of key
     let charPreReqCount = {};
     let i;
     let queue = [];
@@ -12,16 +38,16 @@ var alienOrder = function(words) {
     let hasCycle = false;
     
     for (i = 0; i < len; i++) {
-        // wert vs woo
-        // map : { w: [], e: [ 'o' ], r: [], t: [], o: [] } 
+        // wert and woo
+        // requiredCharMap : { w: [], e: [ 'o' ], r: [], t: [], o: [] } 
         // charPreReqCount : { w: 0, e: 0, r: 0, t: 0, o: 1 } 
         const chars = words[i].split('');
         
         let j = 0;
         
         for (j = 0; j < chars.length; j++) {
-            if (!map[chars[j]]) {
-                map[chars[j]] = [];
+            if (!requiredCharMap[chars[j]]) {
+                requiredCharMap[chars[j]] = [];
                 charPreReqCount[chars[j]] = 0;
             }
         }
@@ -42,9 +68,9 @@ var alienOrder = function(words) {
         }
       
       
-        // since words are in lexico order wert and woo -> ert vs oo, e will have higher order than oo
-        if (j < prev.length && map[prev.charAt(j)].indexOf(cur.charAt(j)) === -1) {
-            map[prev.charAt(j)].push(cur.charAt(j));
+        // since words are in lexico order. wert and woo after skipping w, they becomes ert and oo, e will have higher order than oo
+        if (j < prev.length && requiredCharMap[prev.charAt(j)].indexOf(cur.charAt(j)) === -1) {
+            requiredCharMap[prev.charAt(j)].push(cur.charAt(j));
             // number of prerequisite for using that char in this case it will be o: 1 since o has prerequisite e
             // { w: [], e: [ 'o' ], r: [], t: [], o: [] } 
             // { w: 0, e: 0, r: 0, t: 0, o: 1 } 
@@ -62,20 +88,21 @@ var alienOrder = function(words) {
   
     // for those that we know are root
     while(queue.length > 0) {
-        const char = queue.shift();
+        const rootChar = queue.shift();
         
-        result.push(char);
+        result.push(rootChar);
         
-        for (i = 0; i < map[char].length; i++) {
-            charPreReqCount[map[char][i]]--;
+        for (i = 0; i < requiredCharMap[rootChar].length; i++) {
+            var charRequiresRoot = requiredCharMap[rootChar][i];
+            charPreReqCount[charRequiresRoot]--;
             
-            if (charPreReqCount[map[char][i]] === 0) {
-                queue.push(map[char][i]);
+            if (charPreReqCount[charRequiresRoot] === 0) {
+                queue.push(charRequiresRoot);
             }
         }
     }
   
-    Object.keys(charPreReqCount).forEach(function(char) {
+    Object.keys(charPreReqCount).forEach((char) => {
         if (charPreReqCount[char] !== 0) {
             hasCycle = true;
         }

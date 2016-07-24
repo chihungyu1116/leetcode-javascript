@@ -42,7 +42,7 @@ var maxPathSum = function(root) {
         
         // maxVal as if we end counting value here, what will be the maximum val
         // leftVal and rightVal can be negative values
-        maxVal = Math.max(maxVal, Math.max(ps1, ps2));
+        maxVal = Math.max.apply(null, [maxVal, ps1, ps2]);
 
         // return ps1 only since, ps2 cannot be combined with the parent node
         // leftVal and rightVal can be negative values, however, we can to see if combining with values down below can give higher number

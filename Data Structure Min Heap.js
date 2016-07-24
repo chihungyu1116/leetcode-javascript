@@ -11,7 +11,7 @@ class MinHeap {
     return this.arr.length;
   }
 
-  pop() {
+  pollMin() {
     var arr = this.arr;
     var len = arr.length;
 
@@ -39,7 +39,9 @@ class MinHeap {
     var arr = this.arr;
 
     while(n > 0) {
-      var parentN = Math.floor((n + 1)/2) - 1; // [1,2,3] 1 as root 2 as left child and 3 as right child      2 has idx = 1 and 3 has idx = 2    1/2 will result in parent idx = 0 and 2/2 will result in parent idx = 1. So we need to add one to them and -1 at the end
+      // [1,2,3] 1 as root 2 as left child and 3 as right child 
+      // 2 has idx = 1 and 3 has idx = 2    1/2 will result in parent idx = 0 and 2/2 will result in parent idx = 1. So we need to add one to them and -1 at the end
+      var parentN = Math.floor((n + 1)/2) - 1; 
 
       if(arr[parentN] <= arr[n]) {
         break;
@@ -100,19 +102,19 @@ m.add(1);
 // m.add(-1);
 
 // console.log(m.arr);
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
+console.log(m.pollMin());
+console.log(m.pollMin());
+console.log(m.pollMin());
 
 
 console.log(m.arr);
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
+console.log(m.pollMin());
+console.log(m.pollMin());
+console.log(m.pollMin());
+console.log(m.pollMin());
  
-console.log(m.pop());
-console.log(m.pop());
-console.log(m.pop());
-// console.log(m.pop());
+console.log(m.pollMin());
+console.log(m.pollMin());
+console.log(m.pollMin());
+// console.log(m.pollMin());
 

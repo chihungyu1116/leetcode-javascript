@@ -19,35 +19,37 @@ function snakeAndLadder(moves, n){
   var visited = Array(n).fill(false);
   visited[0] = true;
   var queue = [];
-  queue.push({
-    dist: 0, 
-    vertex: 0
-  });
+  queue.push(0);
+
+  var dist = 0;
   
   while(queue.length > 0) {
-    var move = queue.shift();
-    
-    if(move.vertex === n - 1) {
-      return move.dist;
-    }
-    
-    for(var i = move.vertex + 1; i <= move.vertex + 6; i++) {
+    var len = queue.length;
+
+    for(var j = 0; j < len; j++) {
+      var move = queue.shift();
       
-      if(!visited[i]) {
-        var newMove = {
-          dist: move.dist + 1,
-        };
-        visited[i] = true;  
+      if(move === n - 1) {
+        return dist;
+      }
       
-        if(moves[i] !== -1) {
-          newMove.vertex = moves[i];
-        } else {
-          newMove.vertex = i;
-        }
+      for(var i = move + 1; i <= move + 6; i++) {
         
-        queue.push(newMove);
+        if(!visited[i]) {
+          visited[i] = true;  
+        
+          if(moves[i] !== -1) {
+            newMove = moves[i];
+          } else {
+            newMove = i;
+          }
+          
+          queue.push(newMove);
+        }
       }
     }
+
+    dist++;
   }
   
   return -1;

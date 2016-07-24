@@ -53,7 +53,7 @@ var isMatch = function(s, p) {
                   dp[i][j] = true;
                 }
             } else if(j > 1) { // '*' cannot be the first element      
-                if(dp[i][j-1] || dp[i][j-2]) {
+                if(dp[i][j-2]) { // 0 Occurance
                   dp[i][j] = true;     
                 } else if(i > 0 && (p[j-2] == s[i-1] || p[j-2] == '.') && dp[i-1][j]) {
 
