@@ -1,6 +1,5 @@
 # Leetcode Problems and interview problems in Javascript
-
-- 1 Two Sum.js
+- 
 - 10 Regular Expresion Matching.js
 - 100 Same Tree.js
 - 101 Symmetric Tree.js
@@ -17,6 +16,8 @@
 - 112 Path Sum.js
 - 114 Flatten Binary Tree to Linked List.js
 - 116 Populating Next Right Pointers in Each Node.js
+- 117 Populating Next Right Pointer.js
+- 117 Populating Next Right Pointers in Each Node II.js
 - 118 Pascal's Triangle.js
 - 119 Pascal's Triangle II.js
 - 12 Integer to Roman.js
@@ -25,6 +26,7 @@
 - 122 Best Time to Buy and Sell Stock II.js
 - 123 Best Time to Buy and Sell Stock III.js
 - 124 Binary Tree Maximum Path Sum.js
+- 125 Valid Palindrome.js
 - 126 Word Ladder II.js
 - 127 Word Ladder.js
 - 129 Sum Root to Leaf Numbers.js
@@ -42,6 +44,7 @@
 - 145 Binary Tree Post Order Traversal.js
 - 146 LRU Cache.js
 - 148 Sort List.js
+- 149 Max Points on a Line.js
 - 15 3Sum.js
 - 150 Evaluate Reverse Polish Notation.js
 - 151 Reverse Words in a String.js
@@ -52,6 +55,7 @@
 - 159 Longest Substring with At Most Two Disctinct Characters.js
 - 16 3Sum Closest.js
 - 160 Intersection Of Two Linked Lists.js
+- 161 One Edit Distance.js
 - 162 Find Peak Element.js
 - 165 Compare Version Numbers.js
 - 166 Fraction to Recurring Decimal.js
@@ -87,12 +91,15 @@
 - 21 Merge Two Sorted Lists.js
 - 210 Course Schedule II.js
 - 211 Add and Search Word - Data structure design.js
+- 212 Word Search II.js
 - 213 House Robber II.js
 - 215 Kth Largest Element in an Array.js
+- 215 Kth Largest Element in an Array.py
 - 217 Contain Duplicate.js
 - 219 Contains Duplicate II.js
 - 22 Generate Parentheses.js
 - 220 Contains Duplicate III.js
+- 221 Maximal Square.js
 - 222. Count Complete Tree Nodes.js
 - 223 Rectangle Area.js
 - 224 Basic Calculator.js
@@ -134,16 +141,21 @@
 - 269 Alien Dictionary.js
 - 27 Remove Element.js
 - 277 Find the Celebrity.js
+- 278 First Bad Version.js
 - 279. Perfect Squares.js
 - 28 Implement strStr().js
 - 283 Move Zeroes.js
+- 285 Inorder Successor in BST.js
 - 286 Walls and Gates.js
 - 289. Game of Life.js
+- 293 Flip Game.js
+- 294 Flip Game II.js
 - 295 Find Median From Data Stream.js
 - 296 Best Meeting Point.js
 - 297 Serialize and Deserialize Binary Tree My Submissions Question.js
 - 3 Longest Substring Without Repeating Characters.js
 - 300 Longest Increasing Subsequence.js
+- 301 Remove Invalid Parentheses.js
 - 307 Range Sum Query - Mutable.js
 - 31 Next Permutation.js
 - 314 Binary Tree Vertical Order Traversal.js
@@ -152,16 +164,22 @@
 - 320 Generalized Abbreviation.js
 - 322 Coin Change.js
 - 33 Search in Rotated Sorted Array.js
+- 334 Increasing Triplet Subsequence.js
 - 335 Self Crossing.js
 - 337 House Robber III.js
+- 338 Count Bits.js
 - 339 Nested List Weight Sum.js
 - 34 Search for a Range.js
 - 340 Longest Substring With At Most K Distinct Characters.js
+- 341 Flatten Nested List Iterator.js
+- 348. Design Tic-Tac-Toe.java
 - 349 Intersection of Two Arrays.js
 - 35 Search Insert Position.js
 - 350 Intersection of Two Arrays II.js
+- 353 Design Snake Game.js
 - 36 Valid Sudoku.js
 - 364 Nested List Weight Sum II.js
+- 366 Find Leaves of Binary Tree.js
 - 367 Valid Perfect Square.js
 - 37 Sudoku Solver.js
 - 371 Sum of Two Integers.js
@@ -204,11 +222,14 @@
 - 76 Minimum Window Substring.js
 - 77 Combinations.js
 - 78 Subsets.js
+- 79 Word Search.js
 - 8 String to Integer (atoi).js
 - 80 Remove Duplicates from Sorted Array II.js
 - 81 Search in Rotated Sorted Array II.js
 - 82 Remove Duplicates from Sorted List II.js
 - 83 Remove Duplicates from Sorted List.js
+- 84 Largest Rectangle in Histogram.js
+- 85 Maximal Rectangle.js
 - 86 Partition List.js
 - 88 Merge Sorted Array.js
 - 89 Gray Code.js
@@ -218,6 +239,7 @@
 - 92 Reverse Linked List II.js
 - 93 Restore IP Addresses.js
 - 94 Binary Tree Inorder Traversal.js
+- 95 Unique Binary Search Trees II.js
 - 96 Unique Binary Search Trees.js
 - 98 Validate Binary Search Tree.js
 - Basic Calculator II.js
@@ -234,18 +256,23 @@
 - Find Duplicate Files.js
 - Javascript Closure Questions.js
 - Log Hits.js
+- Longest Common Subsequence.js
+- Matrix Diagonal Traversal.js
 - Maximum Sum Rectangular Submatrix in Matrix Dynamic Programming:2D.js
 - Merge Two Lists Into Sorted List.js
 - Min CPU Count.js
 - Parse HTML.js
 - Parse Log Top k Longest Running Job.js
 - Parse String Into Array.js
+- README.md
 - Ransom Note From Magazine.js
 - Rate Limiter.js
 - Reverse Integer.js
 - Snake And Ladder.js
 - String Encoding and Decoding.js
 - Top k Longest Running Job.js
+- URL shortening.js
+- Weighted Job Scheduling.js
 - ZigZag Conversion.js
 - find kth element in two arrays.js
 - flatten nested array.js

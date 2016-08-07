@@ -1,3 +1,22 @@
+// Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T.
+
+// The same repeated number may be chosen from C unlimited number of times.
+
+// Note:
+// All numbers (including target) will be positive integers.
+// The solution set must not contain duplicate combinations.
+// For example, given candidate set [2, 3, 6, 7] and target 7, 
+// A solution set is: 
+// [
+//   [7],
+//   [2, 2, 3]
+// ]
+// Hide Company Tags Snapchat Uber
+// Hide Tags Array Backtracking
+// Hide Similar Problems (M) Letter Combinations of a Phone Number (M) Combination Sum II (M) Combinations (M) Combination Sum III (M) Factor Combinations (M) Combination Sum IV
+
+
+
 /**
  * @param {number[]} candidates
  * @param {number} target

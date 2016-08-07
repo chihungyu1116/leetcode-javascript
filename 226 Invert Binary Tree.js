@@ -1,3 +1,23 @@
+// Invert a binary tree.
+
+//      4
+//    /   \
+//   2     7
+//  / \   / \
+// 1   3 6   9
+// to
+//      4
+//    /   \
+//   7     2
+//  / \   / \
+// 9   6 3   1
+// Trivia:
+// This problem was inspired by this original tweet by Max Howell:
+// Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.
+// Hide Tags Tree
+
+
+
 // Leetcode #226 
 // Language: Javascript
 // Problem: https://leetcode.com/problems/invert-binary-tree/
@@ -14,27 +34,16 @@
  * @return {TreeNode}
  */
 var invertTree = function(root) {
-    var cur = root;
-    
-    generate(root);
-    
-    return cur;
-};
-
-
-var generate = function(root){
-    if(!root){
-        return null;
-    }
-    
-    if(root.left === null && root.right === null){
+    if(root === null) {
         return root;
     }
     
-    var temp = root.left;
+    var tmp = root.left;
     root.left = root.right;
-    root.right = temp;
-        
+    root.right = tmp;
+    
     invertTree(root.left);
     invertTree(root.right);
-}
+    
+    return root;
+};

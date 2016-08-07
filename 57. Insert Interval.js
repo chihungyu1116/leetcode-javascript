@@ -46,13 +46,11 @@ var insert = function(intervals, newInterval) {
             result.push(newInterval);
             result.push(interval);
             isInsert = true;
-        } else if(newInterval.start <= interval.end && interval.start <= newInterval.end){
-            
+        } else if(interval.end < newInterval.start) {
+            result.push(interval);
+        } else {
             newInterval.start = Math.min(newInterval.start, interval.start);
             newInterval.end = Math.max(newInterval.end, interval.end);
-            continue;
-        } else {
-            result.push(interval);
         }
     }
     

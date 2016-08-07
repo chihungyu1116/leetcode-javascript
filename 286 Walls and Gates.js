@@ -19,8 +19,6 @@
 // Show Tags
 // Show Similar Problems
 
-
-
 var wallsAndGates = function(rooms) {
     var gates = [];
     
@@ -31,19 +29,14 @@ var wallsAndGates = function(rooms) {
     var rows = rooms.length;
     var cols = rooms[0].length;
     
-    // find all gates
+    
     for(var i = 0; i < rows; i++) {
         for(var j = 0; j < cols; j++) {
+            // find all gates
             if(rooms[i][j] === 0) {
-                gates.push([i, j]);
+                traverse(rooms, i, j, rows, cols, 0);
             }
         }
-    }
-    
-    // starting from all gates and traverse
-    for(i = 0; i < gates.length; i++) {
-        var gate = gates[i];
-        traverse(rooms, gate[0], gate[1], rows, cols, 0);
     }
 };
 

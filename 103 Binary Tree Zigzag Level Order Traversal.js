@@ -1,3 +1,22 @@
+// Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
+
+// For example:
+// Given binary tree [3,9,20,null,null,15,7],
+//     3
+//    / \
+//   9  20
+//     /  \
+//    15   7
+// return its zigzag level order traversal as:
+// [
+//   [3],
+//   [20,9],
+//   [15,7]
+// ]
+// Hide Company Tags LinkedIn Bloomberg Microsoft
+// Hide Tags Tree Breadth-first Search Stack
+// Hide Similar Problems (E) Binary Tree Level Order Traversal
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -10,47 +29,50 @@
  * @return {number[][]}
  */
 var zigzagLevelOrder = function(root) {
-    var result = []
+    // bfs
     
     if(!root) {
-        return result;
+        return [];
     }
     
-    var fromLeft = false;
-    var curLvl = [];
-    curLvl.push(root);
-
-    var nextLvl = [];
-    var temp = [];
-
-    while(curLvl.length !== 0) {
-        var p = curLvl.pop();
-        temp.push(p.val);
+    var curLevel = [];
+    curLevel.push(root);
+    
+    var fromLeft = true;
+    var result = [];
+    var tmpResult = [];
+    var nextLevel = [];
+    
+    while(curLevel.length > 0) {
+        var len = curLevel.length;
         
-        if(fromLeft) {
-            if(p.left) {
-                nextLvl.push(p.left);
-            }
-            if(p.right) {
-                nextLvl.push(p.right);
-            }
-        } else {
-            if(p.right) {
-                nextLvl.push(p.right);
-            }
-            if(p.left) {
-                nextLvl.push(p.left);
+        for(var i = 0; i < len; i++) {
+            var node = curLevel.pop();
+            tmpResult.push(node.val);
+            
+            if(fromLeft) {
+                if(node.left) {
+                    nextLevel.push(node.left);
+                }
+                if(node.right) {
+                    nextLevel.push(node.right);
+                }
+            } else {
+                if(node.right) {
+                    nextLevel.push(node.right);
+                }
+                if(node.left) {
+                    nextLevel.push(node.left);
+                }
             }
         }
         
-        if(curLvl.length === 0) {
-            fromLeft = !fromLeft;
-            result.push(temp);
-            temp = [];
-            curLvl = nextLvl;
-            nextLvl = [];
-        }
+        fromLeft = !fromLeft;
+        curLevel = nextLevel;
+        nextLevel = [];
+        result.push(tmpResult);
+        tmpResult = [];
     }
     
-    return result
+    return result;
 };

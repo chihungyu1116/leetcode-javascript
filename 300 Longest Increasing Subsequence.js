@@ -37,3 +37,7 @@ var lengthOfLIS = function(nums) {
     
     return Math.max.apply(null, dp);
 };
+
+
+
+console.log(Infinity < Infinity)

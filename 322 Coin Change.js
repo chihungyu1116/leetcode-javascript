@@ -9,6 +9,7 @@ var coinChange = function(coins, amount) {
         dp.push(-1);
     }
     
+
     for(var a = 0; a < amount; a++) {
         if(dp[a] < 0) {
             continue;
@@ -21,11 +22,15 @@ var coinChange = function(coins, amount) {
                 continue;
             }
             
-            if(dp[a + coin] < 0 || dp[a + coin] > dp[a] + 1) {
-                dp[a+coin] = dp[a] + 1;
+            // if(dp[a + coin] < 0 || dp[a + coin] > dp[a] + 1) {
+            if(dp[a + coin] < 0) {
+                dp[a + coin] = dp[a] + 1;
             }
         }
     }
-    
+    console.log(dp)
+    console.log(dp[amount])
     return dp[amount];
 };
+
+coinChange([1,2,5,10,25], 25);
