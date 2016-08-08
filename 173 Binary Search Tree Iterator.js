@@ -1,3 +1,18 @@
+// Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST.
+
+// Calling next() will return the next smallest number in the BST.
+
+// Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
+
+// Credits:
+// Special thanks to @ts for adding this problem and creating all test cases.
+
+// Hide Company Tags LinkedIn Google Facebook Microsoft
+// Hide Tags Tree Stack Design
+// Hide Similar Problems (M) Binary Tree Inorder Traversal (M) Flatten 2D Vector (M) Zigzag Iterator (M) Peeking Iterator (M) Inorder Successor in BST
+
+
+
 /**
  * Definition for binary tree
  * function TreeNode(val) {
