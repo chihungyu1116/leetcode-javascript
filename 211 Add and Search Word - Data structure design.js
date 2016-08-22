@@ -1,20 +1,39 @@
-// Leetcode #211
-// Language: Javascript
-// Problem: https://leetcode.com/problems/add-and-search-word-data-structure-design/
-// Author: Chihung Yu
+// Design a data structure that supports the following two operations:
 
-var TrieNode = function(){
-    this.iskey = false;
-    this.children = [];
-}
+// void addWord(word)
+// bool search(word)
+// search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter.
 
+// For example:
 
+// addWord("bad")
+// addWord("dad")
+// addWord("mad")
+// search("pad") -> false
+// search("bad") -> true
+// search(".ad") -> true
+// search("b..") -> true
+// Note:
+// You may assume that all words are consist of lowercase letters a-z.
+
+// click to show hint.
+
+// Hide Company Tags Facebook
+// Hide Tags Backtracking Trie Design
+// Hide Similar Problems (M) Implement Trie (Prefix Tree)
 
 /**
  * @constructor
  */
+ 
+function TrieNode(letter) {
+    this.isWord = null;
+    this.letter = letter;
+    this.children = {};
+}
+ 
 var WordDictionary = function() {
-   this.root = new TrieNode(); 
+    this.root = new TrieNode();
 };
 
 /**
@@ -25,21 +44,13 @@ var WordDictionary = function() {
 WordDictionary.prototype.addWord = function(word) {
     var node = this.root;
     
-    for(var i = 0; i < word.length; i++){
-        var key = charKeyFromA(word[i]);
-        if(!node.children[key]){
-            node.children[key] = new TrieNode();
-        }
-        
-        node = node.children[key];
+    for(var i = 0; i < word.length; i++) {
+        var ch = word[i];
+        node.children[ch] = node.children[ch] || new TrieNode(ch);
+        node = node.children[ch];
     }
     
-    node.iskey = true;
-};
-
-charKeyFromA = function(c){
-    var a = 'a'.charCodeAt(0);
-    return c.charCodeAt(0) - a;
+    node.isWord = true;
 };
 
 /**
@@ -49,28 +60,28 @@ charKeyFromA = function(c){
  * contain the dot character '.' to represent any one letter.
  */
 WordDictionary.prototype.search = function(word) {
-    return searchWord(this.root, word, 0);
-};
-
-var searchWord = function(node, word, index){
-    if(word.length === index){
-        return node.iskey;
-    }
-
-    var c = word[index];
+    var node = this.root;
     
-    if(c === "."){
-        for(var i = 0; i < 26; i++){
-            if(node.children[i] && searchWord(node.children[i], word, index+1)){
-                return true;
-            }
+    function searchWord(i, word, node) {
+        if(i === word.length) {
+            return node.isWord === true;
         }
-        return false;
-    } else {
-        var key = charKeyFromA(c);
-        return !!(node.children[key] && searchWord(node.children[key], word, index+1));
+        
+        if(word[i] === '.') {
+            for(var child in node.children) {
+                if(searchWord(i + 1, word, node.children[child])) {
+                    return true;
+                }
+            }
+            
+            return false;
+        } else {
+            return node.children[word[i]] !== undefined && searchWord(i + 1, word, node.children[word[i]]);
+        }
     }
-}
+    
+    return searchWord(0, word, node);
+};
 
 /**
  * Your WordDictionary object will be instantiated and called as such:

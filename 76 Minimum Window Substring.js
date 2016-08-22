@@ -51,6 +51,7 @@ var minWindow = function(s, t) {
             queue.push(i);
             tFoundCount[s[i]]++;
           
+            // if found count is over require count, we don't need those extra, so don't record it to hasFound
             if(tFoundCount[s[i]] <= tRequireCount[s[i]]) {
                 hasFound++;
             }
@@ -63,6 +64,7 @@ var minWindow = function(s, t) {
                     k = queue.shift();
                     tFoundCount[s[k]]--;
                 } while(tFoundCount[s[k]] >= tRequireCount[s[k]]);
+                // moving to the minimum window location
               
                 if(windowEnd - windowBeg > i - k) {
                     windowBeg = k;

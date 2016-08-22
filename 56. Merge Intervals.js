@@ -1,40 +1,47 @@
-/**
- * Definition for an interval.
- * function Interval(start, end) {
- *     this.start = start;
- *     this.end = end;
- * }
- */
-/**
- * @param {Interval[]} intervals
- * @return {Interval[]}
- */
-var merge = function(intervals) {
-    
-    // http://yucoding.blogspot.com/2013/01/leetcode-question-51-merge-intervals.html
-    
-    var result = [];
-    
-    if(!intervals || intervals.length === 0) {
-        return result;
-    }
-    
-    intervals.sort((a, b)=> {
-        return a.start > b.start ? 1 : -1;
-    });
-    
-    result.push(intervals[0]);
-    
-    for(var i = 1; i < intervals.length; i++) {
-        var topOfResult = result[result.length - 1];
-        var interval = intervals[i];
-        
-        if(topOfResult.end >= interval.start) {
-            topOfResult.end = Math.max(topOfResult.end, interval.end);
-        } else {
-            result.push(interval);
-        }
-    }
-    
-    return result;
-};
+// Given a collection of intervals, merge all overlapping intervals.
+
+// For example,
+// Given [1,3],[2,6],[8,10],[15,18],
+// return [1,6],[8,10],[15,18].
+
+// Hide Company Tags LinkedIn Google Facebook Twitter Microsoft Bloomberg Yelp
+// Hide Tags Array Sort
+// Hide Similar Problems (H) Insert Interval (E) Meeting Rooms (M) Meeting Rooms II
+
+ /**
+  * Definition for an interval.
+  * function Interval(start, end) {
+  *     this.start = start;
+  *     this.end = end;
+  * }
+  */
+ /**
+  * @param {Interval[]} intervals
+  * @return {Interval[]}
+  */
+
+
+ var merge = function(intervals) {
+     var res = [];
+     
+     intervals.sort((i1, i2) => i1.start > i2.start ? 1 : -1 );
+     
+     if(intervals.length) {
+         res.push(intervals[0]);
+     }
+     
+     for(var i = 1; i < intervals.length; i++) {
+         var interval = intervals[i];
+         var last = res.pop();
+         
+         if(interval.start > last.end) {
+             res.push(last);
+             res.push(interval);
+         } else {
+             last.end = Math.max(last.end, interval.end);
+             res.push(last);
+         }
+     }
+     
+     return res;
+ };

@@ -1,3 +1,9 @@
+// Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+// Hide Company Tags Amazon LinkedIn Apple Microsoft
+// Hide Tags Linked List
+// Hide Similar Problems (H) Merge k Sorted Lists (E) Merge Sorted Array (M) Sort List (M) Shortest Word Distance II
+
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {

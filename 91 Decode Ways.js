@@ -17,74 +17,71 @@
  */
 
 var numDecodings = function(s) {
-    if(s === null || s.length === 0){
+    if(!s || s[0] === '0') {
         return 0;
     }
+   
+    var nums = [1, 1];
     
-    if(s[0] === '0'){
-        return 0;
-    }
-    
-    var nums = [];
-    nums[0] = 1;
-    nums[1] = 1;
-    
-    for(var i = 2; i <= s.length; i++){
-        var tmp = parseInt(s.substring(i-1, i));
+    for(var i = 2; i <= s.length; i++) {
+        var tmp;
         
-        if(tmp !== 0){
-            nums[i] = nums[i-1];
-        } else {
+        tmp = parseInt(s.substring(i - 1, i));
+        
+        if(tmp === 0) {
             nums[i] = 0;
+        } else {
+            nums[i] = nums[i-1];
         }
         
-        if(s[i - 2] !== '0'){
-            tmp = parseInt(s.substring(i-2, i));
+        if(s[i - 2] !== '0') {
+            tmp = parseInt(s.substring(i - 2, i));
             
-            if(tmp > 0 && tmp < 27){
-                nums[i] += nums[i-2];
+            if(0 < tmp && tmp <= 26) {
+
+                nums[i] += nums[i - 2];
             }
-        } else {
-            nums[i] = nums[i] || 0;
         }
     }
     
     return nums[s.length];
 };
 
-
+console.log(numDecodings('10'));
 
 // Using recusion
 // It also store all the possible combination
-var numDecodings = function(s) {
-    var result = [];
+// var numDecodings = function(s) {
+//     var result = [];
     
-    function traverse(s, beg, end, cur) {
-        if(end > s.length) {
-          return 
-        }
+//     function traverse(s, beg, end, cur) {
+//         if(end > s.length) {
+//           return 
+//         }
     
-        var str = s.substring(beg, end);
-        var num = parseInt(str);
+//         var str = s.substring(beg, end);
+//         var num = parseInt(str);
         
-        if(isNaN(num) || num === 0 || num > 26) {
-          return;
-        }
+//         if(isNaN(num) || num === 0 || num > 26) {
+//           return;
+//         }
       
-        cur.push(str);
+//         cur.push(str);
       
-        if(end === s.length){
-          result.push(cur.slice());
-          return;
-        }
+//         if(end === s.length){
+//           result.push(cur.slice());
+//           return;
+//         }
       
-        traverse(s, end, end + 1, cur);
-        traverse(s, end, end + 2, cur);
-        cur.pop();
-    }
+//         traverse(s, end, end + 1, cur);
+//         traverse(s, end, end + 2, cur);
+//         cur.pop();
+//     }
   
-    traverse(s, 0, 1, []);
-    traverse(s, 0, 2, []);
+//     traverse(s, 0, 1, []);
+//     traverse(s, 0, 2, []);
   
-    return result.length;
-};
+//     return result.length;
+// };
+
+

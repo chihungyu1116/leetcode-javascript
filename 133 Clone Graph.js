@@ -58,3 +58,24 @@ var cloneGraph = function(graph) {
         return newNode; 
     }   
 };
+
+
+var cloneGraph = function(graph) {
+    if(!graph) {
+        return graph;
+    } else {
+        return dfs(graph, {});
+    }
+    
+    function dfs(node, visited) {
+        var newNode = visited[node.label] = visited[node.label] || new UndirectedGraphNode(node.label);
+        
+        for(var i = 0; i < node.neighbors.length; i++) {
+            var neighbor = node.neighbors[i];
+            newNode.neighbors[i] = visited[neighbor.label] = visited[neighbor.label] || dfs(neighbor, visited);
+        }
+        
+        return newNode;
+    }
+    
+};

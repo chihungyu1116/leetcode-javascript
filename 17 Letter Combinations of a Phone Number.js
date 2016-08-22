@@ -1,65 +1,57 @@
+// Given a digit string, return all possible letter combinations that the number could represent.
+
+// A mapping of digit to letters (just like on the telephone buttons) is given below.
+
+
+
+// Input:Digit string "23"
+// Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+// Note:
+// Although the above answer is in lexicographical order, your answer could be in any order you want.
+
+// Hide Company Tags Amazon Dropbox Google Uber Facebook
+// Hide Tags Backtracking String
+// Hide Similar Problems (M) Generate Parentheses (M) Combination Sum
+
+
 /**
  * @param {string} digits
  * @return {string[]}
  */
-var letterCombinations = function(digits) {
-    var result = [];
-    
-    if(digits === null || digits.length === 0){
-        return result;
-    }
-    
-    var str = [];
-    
-    generate(digits, 0, str, result);
-    return result;
+ 
+var numToLetters = {
+    '0': ' ',
+    '1': '',
+    '2': 'abc',
+    '3': 'def',
+    '4': 'ghi',
+    '5': 'jkl',
+    '6': 'mno',
+    '7': 'pqrs',
+    '8': 'tuv',
+    '9': 'wxyz'
 };
-
-var generate = function(digits, depth, str, result){
-    if(digits.length === depth){
-        result.push(str.join(''));
-        return;
-    }
-
-    var letters = convertDigitToLetters(digits[depth]);
+ 
+var letterCombinations = function(digits) {
+    var res = [];
     
-    for(var i = 0; i < letters.length; i++){
-        var letter = letters[i];
-        str.push(letter);
-        generate(digits, depth + 1, str, result);
-        str.pop();            
+    if(digits.length === 0) {
+        return res;
     }
-}
-
-var convertDigitToLetters = function(c){
-    if(c === '1'){
-        return '';
+    
+    function dfs(digits, idx, curr) {
+        if(idx === digits.length) {
+            res.push(curr);
+            return;
+        }
+        
+        var letters = numToLetters[digits[idx]];
+        
+        for(var i = 0; i < letters.length; i++) {
+            dfs(digits, idx + 1, curr + letters[i]);
+        }
     }
-    if(c === '2'){
-        return 'abc';
-    }
-    if(c === '3'){
-        return 'def';
-    }
-    if(c === '4'){
-        return 'ghi';
-    }
-    if(c === '5'){
-        return 'jkl';
-    }
-    if(c === '6'){
-        return 'mno';
-    }
-    if(c === '7'){
-        return 'pqrs';
-    }
-    if(c === '8'){
-        return 'tuv';
-    }
-    if(c === '9'){
-        return 'wxyz';
-    }
-    if(c === '0'){
-        return ' ';
-    }
-}
+    
+    dfs(digits, 0, '');
+    return res;
+};

@@ -10,7 +10,6 @@
 // Show Tags
 // Show Similar Problems
 
-
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -23,19 +22,15 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-    if(head === null){
-        return head;
+    var curr = head;
+    var prev = null;
+    
+    while(curr) {
+        var next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next; 
     }
     
-    var cur = head;
-    var pre = null;
-
-    while(cur){
-        var post = cur.next;
-        cur.next = pre;
-        pre = cur;
-        cur = post;
-    }
-    
-    return pre;
+    return prev;
 };

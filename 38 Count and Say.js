@@ -27,3 +27,28 @@ var countAndSay = function(n) {
     }
     return cur;   
 };
+
+
+// var countAndSay = function(n) {
+//     var str = '1';
+    
+//     for(var i = 1; i < n; i++) {
+//         var newStr = '';
+//         var count = 1;
+
+//         for(var j = 1; j < str.length; j++) {
+//             if(str[j] === str[j - 1]) {
+//                 count++;
+//             } else {
+//                 newStr += count + str[j - 1];
+//                 count = 1;
+//             }
+//         }
+        
+//         newStr += count + str[j - 1];
+//         str = newStr;
+//     }
+
+//     return str;
+// };
+

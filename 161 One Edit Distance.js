@@ -43,3 +43,39 @@ var isOneEditDistance = function(s, t) {
 
   return found || s.length < t.length;
 };
+
+
+var isOneEditDistance = function(s, t) {
+    if(s.length > t.length) {
+        var tmp = s;
+        s = t;
+        t = tmp;
+    }
+    
+    if(t.length - s.length > 1) {
+        return false;
+    }
+    
+    
+    var i = 0;
+    var j = 0;
+    var diff = 0;
+    
+    while(i < s.length && j < t.length) {
+        if(s[i] !== t[j]) {
+            if(diff !== 0) {
+                return false;
+            }
+            diff++;
+            
+            if(t.length !== s.length) {
+                i--;
+            }
+        }
+        
+        i++;
+        j++;
+    }
+    
+    return diff === 1 || (t.length !== s.length && (t.length - j) === 1);
+};

@@ -43,8 +43,6 @@ var multiply = function(num1, num2) {
     
     result.reverse();
     result = result.join('');
-    result = result.replace(/^0+/, '');
-    
     
     return result;
 };

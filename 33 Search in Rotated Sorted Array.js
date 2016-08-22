@@ -22,19 +22,21 @@ var search = function(nums, target) {
             return mid;
         }
         
-        if(nums[mid] >= nums[left]) {
+        if(nums[mid] >= nums[left]) { // correct order
             
             if(nums[left] <= target && target < nums[mid]) {
-                // in correct order
+                // target is within the correct order part
                 right = mid - 1;
             } else {
+                // target is not within the correct order part
                 left = mid + 1;
             }
-        } else {
+        } else { // incorrect order
             if(nums[mid] < target && target <= nums[right]) {
-                // in correct order
+                // target is within the correct order part
                 left = mid + 1;
             } else {
+                // target is not within the correct order part
                 right = mid - 1;
             }
         }

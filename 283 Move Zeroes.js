@@ -18,38 +18,47 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var moveZeroes = function(nums) {
-    var x = 0;
-    var i = 0;
-    while(i < nums.length) {
-        if(nums[i] !== 0 && nums[x] === 0) {
-          nums[x] = nums[i];
-          nums[i] = 0;
-        }
-      
-        while(nums[x] !== 0 && x < nums.length) {
-            x++;
-        }
-      
-        if(i <= x) {
-          i = x + 1;
-        }
-              
-        while(nums[i] === 0) {
-          i++;
-        }
-    }
-};
+// var moveZeroes = function(nums) {
+//     var x = 0;
+//     var i = 0;
+//     while(i < nums.length) {
+//         if(nums[i] !== 0 && nums[x] === 0) {
+//           nums[x++] = nums[i];
+//           nums[i++] = 0;
+//         }
 
-// Simpler but slower algo
+//         while(nums[x] !== 0 && x < nums.length) {
+//             x++;
+//         }
+      
+//         if(i <= x) {
+//           i = x + 1;
+//         }
+              
+//         while(nums[i] === 0) {
+//           i++;
+//         }
+//     }
+// };
+
+
+
+
+// // Simpler but slower algo
 var moveZeroes = function(nums) {
-    y = 0;
+    y = 0; // y is none zero pointer
+
+    // y only increase when i found a none zero number
+    // i only swap if i found a none zero number
     for (var i = 0; i < nums.length; i++) {
-        if (nums[i]) {
+        if (nums[i] !== 0) {
             var tmp = nums[i];
             nums[i] = nums[y];
             nums[y] = tmp;
-            y += 1;
+            y++;
         }
     }
+
+    return nums;
 };
+console.log(moveZeroes([0,1,0,3,12]));

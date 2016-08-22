@@ -11,52 +11,47 @@
  */
 
 var verticalOrder = function(root) {
-    var map = {};
-    var queue = [];
     var res = [];
-    // since iterating over map cannot ensure order
-    // we store min and max index for enforcing that
-    var minIdx = Infinity;
-    var maxIdx = -Infinity;
     
     if(root === null) {
         return res;
     }
     
-    queue.push([0, root]);
-    while(queue.length > 0) {
+    var hash = {};
+    var queue = [];
+    queue.push([root, 0]);
+    var min = Infinity;
+    var max = -Infinity;
+    
+    while(queue.length) {
         var len = queue.length;
         
         for(var i = 0; i < len; i++) {
-            var data = queue.shift();
-            var cur = data[1];
-            var idx = data[0];
+            var pair = queue.shift();
+            var node = pair[0];
+            var order = pair[1];
             
-            if(idx < minIdx) {
-                minIdx = idx;
-            }
-            if(idx > maxIdx) {
-                maxIdx = idx;
+            hash[order] = hash[order] || [];
+            hash[order].push(node.val);
+            
+            min = Math.min(order, min);
+            max = Math.max(order, max);
+            
+            if(node.left) {
+                queue.push([node.left, order - 1]);
             }
             
-            map[idx] = map[idx] || [];
-            map[idx].push(cur.val);
-            
-            if(cur.left) {
-                queue.push([idx - 1, cur.left]);
-            }
-            if(cur.right) {
-                queue.push([idx + 1, cur.right]);
+            if(node.right) {
+                queue.push([node.right, order + 1]);
             }
         }
     }
-    // since iterating over map cannot ensure order
-    for(i = minIdx; i <= maxIdx; i++) {
-        var key = i.toString();
-        
-        if(map[key]) {
-            res.push(map[key]);
+    
+    while(min <= max) {
+        if(hash[min].length) {
+            res.push(hash[min]);
         }
+        min++;
     }
     
     return res;

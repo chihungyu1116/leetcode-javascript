@@ -15,29 +15,52 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var sortColors = function(nums) {
-    var redIndex = 0;
-    var blueIndex = nums.length - 1;
-    var red = 0;
-    var blue = 2;
+// var sortColors = function(nums) {
+//     var redIndex = 0;
+//     var blueIndex = nums.length - 1;
+//     var red = 0;
+//     var blue = 2;
 
-    for(var i = 0; i <= blueIndex; i++) {
-        if(nums[i] === red) {
-            swap(nums, redIndex, i);
-            redIndex++;
-        } else if(nums[i] === blue) {
-            swap(nums, blueIndex, i);
-            blueIndex--;
-            i--;
+//     for(var i = 0; i <= blueIndex; i++) {
+//         if(nums[i] === red) {
+//             swap(nums, redIndex, i);
+//             redIndex++;
+//         } else if(nums[i] === blue) {
+//             swap(nums, blueIndex, i);
+//             blueIndex--;
+//             i--;
+//         }
+//     }
+// };
+
+// function swap(arr, i, j) {
+//     if(i === j) {
+//         return;
+//     }
+//     var tmp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = tmp;
+// }
+
+
+var sortColors = function(nums) {
+    var redIdx = 0;
+    var blueIdx = nums.length - 1;
+    var i = 0;
+    
+    while(i <= blueIdx) {
+        if(nums[i] === 0) {
+            swap(nums, i++, redIdx++);
+        } else if(nums[i] === 2) {
+            swap(nums, i, blueIdx--);
+        } else {
+            i++;
         }
     }
-};
-
-function swap(arr, i, j) {
-    if(i === j) {
-        return;
+    
+    function swap(nums, i, j) {
+        var tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
     }
-    var tmp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = tmp;
-}
+};

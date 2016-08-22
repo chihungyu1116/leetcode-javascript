@@ -38,3 +38,31 @@ var isPalindrome = function(s) {
     
     return true;
 };
+
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    var head = 0;
+    var tail = s.length - 1;
+    
+    s = s.toLowerCase();
+    
+    while(head < tail) {
+        while(s[head] && !s[head].match(/[a-z0-9]/)) {
+            head++;
+        }
+        while(s[tail] && !s[tail].match(/[a-z0-9]/)) {
+            tail--;
+        }
+        if(head < tail && s[head] !== s[tail]) {
+            return false;
+        }
+        head++;
+        tail--;
+    }
+    
+    return true;
+};
