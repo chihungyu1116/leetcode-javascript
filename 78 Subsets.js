@@ -38,3 +38,24 @@ var generate = function(nums, index, cur, result) {
     generate(nums, index + 1, cur, result);
     cur.pop();
 }
+
+
+
+// second try
+
+
+var subsets = function(nums) {
+    var res = [[]];
+    
+    function generate(nums, i, cur, res) {
+        for(; i < nums.length; i++) {
+            cur.push(nums[i]);
+            res.push(cur.slice());
+            generate(nums, i + 1, cur, res);
+            cur.pop();
+        }
+    }
+    
+    generate(nums, 0, [], res);
+    return res;
+};

@@ -42,19 +42,19 @@ var insert = function(intervals, newInterval) {
         
         if(isInsert) {
             result.push(interval);
-        } else if(newInterval.end < interval.start) {
+        } else if(newInterval.end < interval.start) { // insertion before the sorted interval
             result.push(newInterval);
             result.push(interval);
             isInsert = true;
-        } else if(interval.end < newInterval.start) {
+        } else if(interval.end < newInterval.start) { // no overlap at all
             result.push(interval);
         } else {
             newInterval.start = Math.min(newInterval.start, interval.start);
             newInterval.end = Math.max(newInterval.end, interval.end);
         }
     }
-    
-    if(!isInsert) {
+     
+    if(!isInsert) { // insertion at the very end;
         result.push(newInterval);
     }
     

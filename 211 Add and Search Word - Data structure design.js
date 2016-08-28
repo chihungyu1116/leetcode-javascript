@@ -22,18 +22,17 @@
 // Hide Tags Backtracking Trie Design
 // Hide Similar Problems (M) Implement Trie (Prefix Tree)
 
+function TrieNode(chr) {
+    this.val = chr;
+    this.isWord = false;
+    this.children = [];
+}
+
 /**
  * @constructor
  */
- 
-function TrieNode(letter) {
-    this.isWord = null;
-    this.letter = letter;
-    this.children = {};
-}
- 
 var WordDictionary = function() {
-    this.root = new TrieNode();
+   this.root = new TrieNode(null, false);
 };
 
 /**
@@ -43,11 +42,10 @@ var WordDictionary = function() {
  */
 WordDictionary.prototype.addWord = function(word) {
     var node = this.root;
-    
     for(var i = 0; i < word.length; i++) {
-        var ch = word[i];
-        node.children[ch] = node.children[ch] || new TrieNode(ch);
-        node = node.children[ch];
+        var chr = word[i];
+        node.children[chr] = node.children[chr] || new TrieNode(chr);
+        node = node.children[chr];
     }
     
     node.isWord = true;
@@ -62,25 +60,27 @@ WordDictionary.prototype.addWord = function(word) {
 WordDictionary.prototype.search = function(word) {
     var node = this.root;
     
-    function searchWord(i, word, node) {
+    function dfs(node, word, i) {
         if(i === word.length) {
-            return node.isWord === true;
+            return node.isWord;
         }
         
-        if(word[i] === '.') {
-            for(var child in node.children) {
-                if(searchWord(i + 1, word, node.children[child])) {
+        var chr = word[i];
+        
+        if(chr === '.') {
+            for(var key in node.children) {
+                if(dfs(node.children[key], word, i + 1)) {
                     return true;
                 }
             }
-            
-            return false;
-        } else {
-            return node.children[word[i]] !== undefined && searchWord(i + 1, word, node.children[word[i]]);
+        } else if(node.children[chr]) {
+            return dfs(node.children[chr], word, i + 1);
         }
+        
+        return false;
     }
     
-    return searchWord(0, word, node);
+    return dfs(node, word, 0);
 };
 
 /**

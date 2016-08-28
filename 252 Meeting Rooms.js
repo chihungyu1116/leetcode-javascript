@@ -37,3 +37,21 @@ var canAttendMeetings = function(intervals) {
     
     return true;
 };
+
+
+
+// second attempt
+
+var canAttendMeetings = function(intervals) {
+    intervals.sort((a,b) => {
+        return a.start > b.start ? 1 : -1;
+    });
+    
+    for(var i = 1; i < intervals.length; i++) {
+        if(intervals[i - 1].end > intervals[i].start) {
+            return false;
+        }
+    }
+    
+    return true;
+};

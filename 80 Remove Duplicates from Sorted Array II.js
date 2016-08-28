@@ -12,38 +12,28 @@
 // Hide Similar Problems (E) Remove Element
 
 
-
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-    var n = nums.length;
-    var index = 0;
     var oc = 1;
+    var sorted = 0;
     
     for(var i = 1; i < nums.length; i++) {
-        if(nums[index] === nums[i]) {
+        if(nums[i] === nums[sorted]) {
             if(oc === 2) {
                 continue;
             }
+            
             oc++;
         } else {
             oc = 1;
         }
         
-        index++;
-        nums[index] = nums[i];
+        sorted++;
+        nums[sorted] = nums[i];
     }
     
-    return index + 1;
+    return sorted + 1;
 };
-
-
-
-161700
-
-70000 rsu => $538,000   4yrs 1 yr cliff 25% every quarter
-
-benefit
-

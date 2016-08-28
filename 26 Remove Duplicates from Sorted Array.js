@@ -39,3 +39,23 @@ var removeDuplicates = function(nums) {
     
     return end+1;
 };
+
+
+
+// second attempt
+
+var removeDuplicates = function(nums) {
+    var sorted = 0;
+    
+    for(var i = 1; i < nums.length; i++) {
+        if(nums[i] !== nums[sorted]) {
+            sorted++;
+            nums[sorted] = nums[i];
+        }
+    }
+    
+    return sorted + 1;
+};
+
+
+// [tricky]

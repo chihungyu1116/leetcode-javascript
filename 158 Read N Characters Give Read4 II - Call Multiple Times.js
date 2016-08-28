@@ -5,11 +5,12 @@
 // By using the read4 API, implement the function int read(char *buf, int n) that reads n characters from the file.
 
 // Note:
-// The read function will only be called once for each test case.
+// The read function may be called multiple times.
 
-// Hide Company Tags Facebook
+// Hide Company Tags Bloomberg Google Facebook
 // Hide Tags String
-// Hide Similar Problems (H) Read N Characters Given Read4 II - Call multiple times
+// Hide Similar Problems (E) Read N Characters Given Read4
+
 
 
 /**
@@ -27,34 +28,38 @@
  * @return {function}
  */
 var solution = function(read4) {
+    let bufRead = [];
+    let count = 0; // how many characters read with read4
+    let i = 0;
+        
     /**
      * @param {character[]} buf Destination buffer
      * @param {number} n Maximum number of characters to read
      * @return {number} The number of characters read
      */
     return function(buf, n) {
-        var eof = false;
-        var total = 0;
-        var temp = Array(4);
+        let numChrRead = 0;
         
-        while(!eof && total < n) {
-            // read4 will populate temp with read characters, and return count ...
-            var count = read4(temp);
-        
-            if(count < 4) {
-                eof = true;
+        while (numChrRead < n) {
+            if (i === 0) {
+                count = read4(bufRead);
             }
             
-            count = Math.min(count, n - total);
+            while (i < count && numChrRead < n) {
+                buf[numChrRead++] = bufRead[i++];
+            }
             
-            for(var i = 0; i < count; i++) {
-                buf[total++] = temp[i];
+            // read4 buffer used up, start over
+            if (i === count) {
+                i = 0;
+            }
+            
+            // end of file
+            if (count < 4) {
+                break;
             }
         }
         
-        return total;
+        return numChrRead;
     };
 };
-
-
-// [tricky] [important]

@@ -79,3 +79,56 @@ class UnionFind {
         return this.count;
     }
 }
+
+
+
+
+
+
+// second attempt
+
+var validTree = function(n, edges) {
+    var unions = [];
+    for(var i = 0; i < n; i++) {
+        unions.push(i);
+    }
+    
+    for(i = 0; i < edges.length; i++) {
+        var edge = edges[i];
+        if(isConnected(unions, edge[1], edge[0])) {
+            return false; 
+        }
+    }
+    
+    var visited = {};
+    var diff = 0;
+    
+    for(i = 0; i < unions.length; i++) {
+        var union = unions[i];
+        if(visited[union]) {
+            continue;
+        }
+        
+        visited[union] = true;
+        diff++;
+    }
+    
+    return diff === 1;
+};
+
+function isConnected(unions, i, j) {
+    var group1 = unions[i];
+    var group2 = unions[j];
+
+    if(group1 === group2) {
+        return true
+    }
+    
+    for(var k = 0; k < unions.length; k++) {
+        if(unions[k] === group2) {
+            unions[k] = group1;
+        }
+    }
+
+    return false;
+}

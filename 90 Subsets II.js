@@ -1,3 +1,7 @@
+// provide many different solutions
+// reference: http://bangbingsyb.blogspot.com/2014/11/leetcode-subsets-i-ii.html
+
+
 /**
  * @param {number[]} nums
  * @return {number[][]}

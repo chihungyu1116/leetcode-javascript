@@ -40,6 +40,10 @@ var addOperators = function(num, target) {
         opRecur(rest, target, currVal, result + currVal, expression + "+" + curr, results);  
         opRecur(rest, target,-currVal, result - currVal, expression + "-" + curr, results);  
         opRecur(rest, target, currVal * lastOp, result - lastOp + lastOp * currVal, expression + "*" + curr, results);  
+        // need to record the last oprand for handling mulitiplication. 
+        // result - lastOP + lastOP * curVaule 
+        // e.g 4+3*2 when dealing with *2, we have 4+3 then -3 then do 3*2
+        // The operation for the function will look like 4 + 3 - 3 + 3 * 2
       }
     }
   }

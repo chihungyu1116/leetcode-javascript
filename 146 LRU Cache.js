@@ -92,3 +92,115 @@ LRUCache.prototype.set = function(key, value) {
     
     this.map.set(key, newNode);
 };
+
+
+
+
+
+
+
+
+
+
+// Second Implementation
+
+
+function DoublyLinkListNode(key, value) {
+    this.key = key;
+    this.value = value;
+    this.prev = this.next = null;
+}
+
+/**
+ * @constructor
+ */
+var LRUCache = function(capacity) {
+    this.head = this.tail = null;
+    this.maxCapacity = capacity;
+    this.currSize = 0;
+    this.hash = {};
+};
+
+/**
+ * @param {number} key
+ * @returns {number}
+ */
+LRUCache.prototype.get = function(key) {
+    if(!this.hash[key]) {
+        return -1;
+    }
+    
+    this.moveToHead(key);
+    return this.hash[key].value;
+};
+
+/**
+ * @param {number} key
+ * @param {number} value
+ * @returns {void}
+ */
+LRUCache.prototype.set = function(key, value) {
+    if(this.maxCapacity <= 0) {
+        return;
+    }
+
+    if(!this.hash[key]) {
+
+        if(this.currSize === this.maxCapacity) {
+            this.removeLast();
+            this.currSize--;
+        }
+        
+        this.hash[key] = new DoublyLinkListNode(key, value);
+        this.currSize++;
+    }
+    
+    this.hash[key].value = value;
+    this.moveToHead(key);
+};
+
+LRUCache.prototype.removeLast = function() { 
+    if(this.tail === null) {
+        return;
+    }
+
+    delete this.hash[this.tail.key];
+    var newTail = this.tail.prev;
+
+    if(newTail === null) {
+        this.head = this.tail = null;
+        return;
+    }
+
+    this.tail.prev = null;
+    newTail.next = null;
+    this.tail = newTail;
+}
+
+LRUCache.prototype.moveToHead = function(key) {
+    var newHead = this.hash[key];
+    
+    if(this.head === null && this.tail === null) {
+        this.head = this.tail = newHead;
+    }
+
+    if(newHead === this.head) {
+        return;
+    }
+    
+    if(newHead === this.tail) {
+        this.tail = newHead.prev;
+    }
+    
+    if(newHead.prev) {
+        newHead.prev.next = newHead.next;    
+    }
+    if(newHead.next) {
+        newHead.next.prev = newHead.prev;    
+    }
+    
+    newHead.prev = null;
+    newHead.next = this.head;
+    this.head.prev = newHead;
+    this.head = newHead;
+}
