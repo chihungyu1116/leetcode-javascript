@@ -32,7 +32,7 @@ var generate = function(nums, index, cur, result) {
         result.push(cur.slice());
         return
     }
-    
+
     generate(nums, index + 1, cur, result);
     cur.push(nums[index]);
     generate(nums, index + 1, cur, result);
@@ -42,11 +42,9 @@ var generate = function(nums, index, cur, result) {
 
 
 // second try
-
-
 var subsets = function(nums) {
     var res = [[]];
-    
+
     function generate(nums, i, cur, res) {
         for(; i < nums.length; i++) {
             cur.push(nums[i]);
@@ -55,7 +53,24 @@ var subsets = function(nums) {
             cur.pop();
         }
     }
-    
+
     generate(nums, 0, [], res);
     return res;
 };
+
+// Third solution
+var subsets = function(nums) {
+    var results = [];
+    combine(nums, 0, [], results);
+    return results;
+}
+
+var combine = function(nums, index, partial, results) {
+    if(index === nums.length) {
+      results.push(partial);
+      return;
+    }
+
+    combine(nums, index + 1, partial, results);
+    combine(nums, index + 1, partial.concat([nums[index]]), results);
+}
