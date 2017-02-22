@@ -5,8 +5,8 @@
 // Note:
 // All numbers (including target) will be positive integers.
 // The solution set must not contain duplicate combinations.
-// For example, given candidate set [2, 3, 6, 7] and target 7, 
-// A solution set is: 
+// For example, given candidate set [2, 3, 6, 7] and target 7,
+// A solution set is:
 // [
 //   [7],
 //   [2, 2, 3]
@@ -24,33 +24,33 @@
  */
 var combinationSum = function(candidates, target) {
     var result = [];
-    
+
     if(candidates === null || candidates.length === 0){
         return result;
     }
-    
+
     candidates.sort(function(a,b){return a > b ? 1 : -1});
-    
+
     var output = [];
-    
+
     generate(candidates, result, output, target, 0);
-    
+
     return result;
 };
 
 var generate = function(candidates, result, output, sum, index){
     if(sum === 0){
-        result.push(output.slice());    
+        result.push(output.slice());
     }
     if(sum < 0){
         return;
     }
-    
+
     for(var i = index; i < candidates.length; i++){
         if(i > index && candidates[i] === candidates[i - 1]){
             continue;
         }
-        
+
         if(candidates[i] <= sum){
             output.push(candidates[i]);
             generate(candidates, result, output, sum - candidates[i], i);
@@ -58,3 +58,27 @@ var generate = function(candidates, result, output, sum, index){
         }
     }
 }
+
+
+// Another solution
+var combinationSum = function(candidates, target) {
+    var results = [];
+    comb(candidates.sort(), 0, [], 0, target, results);
+    return results;
+};
+
+var comb = function(cand, index, partial, partialSum, target, results) {
+    if(target === partialSum) {
+        results.push(partial);
+        return;
+    }
+    if(cand.length === index || partialSum > target) {
+        return;
+    }
+
+    comb(cand, index + 1, partial, partialSum, target, results);
+    comb(cand, index, partial.concat([cand[index]].concat([cand[index]])),
+         partialSum + 2* cand[index], target, results);
+    comb(cand, index + 1, partial.concat([cand[index]]),
+         partialSum + cand[index], target, results);
+};
