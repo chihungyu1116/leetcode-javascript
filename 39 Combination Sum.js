@@ -75,10 +75,7 @@ var comb = function(cand, index, partial, partialSum, target, results) {
     if(cand.length === index || partialSum > target) {
         return;
     }
-
-    comb(cand, index + 1, partial, partialSum, target, results);
-    comb(cand, index, partial.concat([cand[index]].concat([cand[index]])),
-         partialSum + 2* cand[index], target, results);
-    comb(cand, index + 1, partial.concat([cand[index]]),
+    comb(cand, index, partial.concat([cand[index]]), 
          partialSum + cand[index], target, results);
+    comb(cand, index + 1, partial, partialSum, target, results);
 };
