@@ -23,17 +23,17 @@
 
  var merge = function(intervals) {
      var res = [];
-     
+
      intervals.sort((i1, i2) => i1.start > i2.start ? 1 : -1 );
-     
+
      if(intervals.length) {
          res.push(intervals[0]);
      }
-     
+
      for(var i = 1; i < intervals.length; i++) {
          var interval = intervals[i];
          var last = res.pop();
-         
+
          if(interval.start > last.end) {
              res.push(last);
              res.push(interval);
@@ -42,6 +42,29 @@
              res.push(last);
          }
      }
-     
+
      return res;
  };
+
+//Another similar solution
+ var merge = function(intervals) {
+    if( intervals === null || intervals.length <= 0) {
+        return intervals;
+    }
+    intervals.sort(function(a,b) { return a.start - b.start});
+    var retIntervals = [];
+    var i = 1;
+    retIntervals.push(intervals[0]);
+    console.log(retIntervals);
+    while(i < intervals.length) {
+        var lastTime = retIntervals[retIntervals.length - 1];
+        var currentTime = intervals[i]
+        if(lastTime.end < currentTime.start) {
+            retIntervals.push(currentTime)
+        }  else if(lastTime.end < currentTime.end) {
+            retIntervals[retIntervals.length - 1].end = currentTime.end;
+        }
+        i++;
+    }
+    return retIntervals;
+};
