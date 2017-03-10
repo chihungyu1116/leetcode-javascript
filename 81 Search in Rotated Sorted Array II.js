@@ -18,30 +18,31 @@
 var search = function(nums, target) {
     var start = 0;
     var end = nums.length -1;
-    
+
     while(start <= end){
-        var mid = start + parseInt((end - start)/2);
-        
-        if(nums[mid] === target){
+        var mid = parseInt((end + start)/2);
+
+        if(nums[mid] === target ){
             return true;
         }
-        
-        if(nums[start] < nums[mid]){ // in correct order
-            if(target >= nums[start] && target < nums[mid]){ // normal order part
+
+        if(nums[start] === nums[mid]) {
+            start++;
+        } else if(nums[start] < nums[mid]){ // left part sorted
+            if(target >= nums[start] && target < nums[mid]){
                 end = mid - 1;
             } else {
                 start = mid + 1;
             }
-        } else if(nums[mid] < nums[start]) { // incorrect order
-            if(target <= nums[end] && target > nums[mid]){ // normal order part            
+        } else { //right part sorted
+            if(target <= nums[end] && target > nums[mid]){ // normal order part
                 start = mid + 1;
             } else {
                 end = mid -1;
             }
-        } else {
-            start++;
         }
     }
-    
+
     return false;
 };
+
