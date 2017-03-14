@@ -55,7 +55,6 @@
     var retIntervals = [];
     var i = 1;
     retIntervals.push(intervals[0]);
-    console.log(retIntervals);
     while(i < intervals.length) {
         var lastTime = retIntervals[retIntervals.length - 1];
         var currentTime = intervals[i]
