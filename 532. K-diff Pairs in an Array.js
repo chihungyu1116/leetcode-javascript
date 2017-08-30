@@ -5,7 +5,6 @@ var findPairs = function(nums, k) {
     var dict = {};
     var count = 0;
 
-    //nums.sort(function(a,b){ return a - b });
     for (var i = 0; i < nums.length; i++) {
         var number = nums[i];
         dict[number] = (dict[number] === undefined) ? 1 : dict[number] += dict[number];
