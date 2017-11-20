@@ -16,7 +16,7 @@ var lengthOfLongestSubstring = function(s) {
 
     // scan from left to right.    
     for(var i = start; i < s.length; i++){
-        c = s[i];
+        var c = s[i];
 
         if(map[c] !== undefined && map[c] >= start) {
             start = map[c] + 1; // start new search with repeated word's last location + 1
