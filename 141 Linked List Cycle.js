@@ -14,27 +14,66 @@
  * @param {ListNode} head
  * @return {boolean}
  */
+// var hasCycle = function(head) {
+//     if(head === null || head.next === null){
+//         return false;
+//     }
+    
+//     var faster = head.next;
+//     var slower = head;
+    
+//     while(faster && slower){
+//         if(faster.val === slower.val){
+//             return true;
+//         }
+//         faster = faster.next;
+        
+//         if(faster === null){
+//             return false;
+//         } else {
+//             faster = faster.next;
+//         }
+        
+//         slower = slower.next;
+//     }
+    
+//     return false;
+// };
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
 var hasCycle = function(head) {
-    if(head === null || head.next === null){
+    if (head === null) {
         return false;
     }
+
+    var node1 = head;
+    var node2 = head;
+    node2 = node2.next;
     
-    var faster = head.next;
-    var slower = head;
-    
-    while(faster && slower){
-        if(faster.val === slower.val){
+    while(node1 !== null && node2 !== null) {
+        if (node1.val === node2.val) {
             return true;
         }
-        faster = faster.next;
+
+        node1 = node1.next;
+        node2 = node2.next;
         
-        if(faster === null){
-            return false;
-        } else {
-            faster = faster.next;
+        if (node2 !== null) {
+            node2 = node2.next;
         }
         
-        slower = slower.next;
+        
     }
     
     return false;

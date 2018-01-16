@@ -9,11 +9,15 @@
 var reverseBits = function(n) {
     var result =  0;
     
-    for(var i = 0; i < 32; i++){
+    for(var i = 0; i < 31; i++){
         result <<= 1;
         result |= n & 1;
-        n >>= 1;
+
+        n >>>= 1;
+        console.log(result, n);
     }
     
     return Math.abs(result);
 };
+
+console.log(reverseBits(4294967295));
