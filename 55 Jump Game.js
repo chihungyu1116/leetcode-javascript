@@ -11,6 +11,5 @@ var canJump = function(nums) {
         }
         numLeft = Math.max(nums[i], numLeft);
     }
-    
-    return numLeft >= 0;
+    return true;
 };

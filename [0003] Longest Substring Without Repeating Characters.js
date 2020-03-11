@@ -4,6 +4,9 @@
  */
 
 
+// use map for storing index
+// if a repeated character is found, skip directly to the index of the repeated character in the map.
+
 var lengthOfLongestSubstring = function(s) {
     if(s === null || s.length === 0){
         return 0;
