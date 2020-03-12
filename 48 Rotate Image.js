@@ -71,3 +71,42 @@ var swap = function(matrix, i1, j1, i2, j2) {
     matrix[i2][j2] = aux;
 };
 
+
+
+
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function(matrix) {
+    rotateDiagonal(matrix);
+    rotateRow(matrix);
+};
+
+var swap = function(matrix, x1, y1, x2, y2) {
+    var temp = matrix[x1][y1];
+    matrix[x1][y1] = matrix[x2][y2];
+    matrix[x2][y2] = temp;
+}
+
+var rotateRow = function(matrix) {
+    for(var i = 0; i < matrix.length; i++) {
+        var row = matrix[i];
+        var start = 0;
+        var end = matrix[i].length - 1;
+        
+        while(start < end) {
+            swap(matrix, i, start, i, end);
+            start++;
+            end--;
+        }
+    }
+}
+
+var rotateDiagonal = function(matrix) {
+    for(var i = 0; i < matrix.length; i++) {
+        for(var j = i; j < matrix.length; j++) {
+            swap(matrix, i, j, j, i);
+        }
+    }
+}
