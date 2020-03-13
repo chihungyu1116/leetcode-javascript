@@ -64,7 +64,6 @@ var lengthOfLongestSubstringTwoDistinct = function(s) {
         if (map.size === 2 && map.get(c) === undefined) {
             var curStr;
             if (i - start > maxLen) {
-                curStr = s.substring(start, i);
                 maxLen = i - start;
             }
             var leftMost = s.length;

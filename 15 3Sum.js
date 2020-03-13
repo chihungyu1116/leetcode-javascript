@@ -33,8 +33,8 @@ var threeSum = function(nums) {
     
     for(var i = 0; i < len-2; i++){
         
-        if(i === 0 || nums[i] > nums[i-1]){ // very important, same as line 40, remove duplicate as 111 will only run once 1-> rather tan 1 1 1
-            target = 0 - nums[i];
+        if(i === 0 || nums[i] > nums[i-1]){ // very important, same as line 40, remove duplicate as 111 will only run once 1-> rather than 1 1 1
+            var target = 0 - nums[i];
             
             j = i + 1;
             k = len - 1;
