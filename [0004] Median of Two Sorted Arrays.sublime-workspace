@@ -1,0 +1,239 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"atta",
+				"attachEvent"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Install Package Control"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/cyu0/workspace/perkmon/src/routes/home/Home.js",
+		"/Users/cyu0/workspace/perkmon/src/routes/home/Home.css",
+		"/Users/cyu0/Downloads/immutable-js-diff-master/tests/sequenceDiff.test.js",
+		"/Users/cyu0/workspace/perkmon/src/components/Input/Input.css",
+		"/Users/cyu0/workspace/perkmon/src/components/Html.js",
+		"/Users/cyu0/workspace/perkmon/src/components/Input/Input.js",
+		"/Users/cyu0/workspace/perkmon/src/components/SearchWithBgImage/SearchWithBgImage.css",
+		"/Users/cyu0/workspace/perkmon/src/components/App.js",
+		"/Users/cyu0/workspace/perkmon/src/lib/event.js",
+		"/Users/cyu0/workspace/perkmon/src/lib/Event.js",
+		"/Users/cyu0/workspace/perkmon/src/components/CtaImageWithSearch/SearchWithBgImage.js",
+		"/Users/cyu0/workspace/perkmon/src/components/CtaImageWithSearch/SearchWithBgImage.css",
+		"/Users/cyu0/workspace/perkmon/src/components/Header/Header.css",
+		"/Users/cyu0/workspace/perkmon/src/routes/home/index.js",
+		"/Users/cyu0/workspace/perkmon/src/components/Header/Header.js",
+		"/Users/cyu0/workspace/perkmon/src/routes/index.js",
+		"/Users/cyu0/workspace/perkmon/build/server.js",
+		"/Users/cyu0/workspace/perkmon/src/",
+		"/Users/cyu0/workspace/perkmon/src/components/Navigation/Navigation.js",
+		"/Users/cyu0/workspace/perkmon/node_modules/enzyme/src/ReactWrapper.jsx",
+		"/Users/cyu0/workspace/perkmon/node_modules/resolve/test/precedence/aaa.js",
+		"/Users/cyu0/workspace/perkmon/src/components/variables.css",
+		"/Users/cyu0/workspace/perkmon/package.json"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 108.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "[0004] Median of Two Sorted Arrays.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"header.css",
+				"src/components/Header/Header.css"
+			],
+			[
+				"navigation",
+				"src/components/Navigation/Navigation.js"
+			],
+			[
+				"variables.css",
+				"src/components/variables.css"
+			],
+			[
+				"aa.js",
+				"node_modules/resolve/test/precedence/aaa.js"
+			],
+			[
+				".jsx",
+				"node_modules/enzyme/src/ReactWrapper.jsx"
+			],
+			[
+				".json",
+				"package.json"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 300.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

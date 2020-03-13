@@ -1,0 +1,3 @@
+1. Substring vs subsequnce: substrings are consecutive subsequences
+2. substring without repeating character: use map for storing index and use time window
+
