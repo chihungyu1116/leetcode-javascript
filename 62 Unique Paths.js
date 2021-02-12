@@ -30,3 +30,25 @@ var uniquePaths = function(m, n) {
     
     return dp[m-1][n-1];
 }
+
+// This solution uses Dinamic Programming
+var uniquePaths3 = function(m, n) {
+  var matrix = [];
+  for(var i = 0; i < m; i++) {
+    matrix[i] = [];
+    for(var j = 0; j < n; j++) {
+      if(i == 0 || j == 0) {
+        matrix[i][j] = 1;
+      } else{
+        matrix[i][j] = 0;   
+      }
+    }
+  }
+  
+  for(var row = 1; row < m; row++) {
+    for(var col = 1; col < n; col++) {
+      matrix[row][col] = matrix[row - 1][col] + matrix[row][col - 1]
+    }
+  }
+   return matrix[m - 1][n - 1];
+};
