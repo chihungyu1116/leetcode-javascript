@@ -108,34 +108,3 @@ var ladderLength = function(beginWord, endWord, wordList) {
     
     return 0;
 };
-
-
-
-
-Hi Thiago
-
-I very much appreciate that you took the time writing this warm welcoming letter and provided me the opportunity to come onsite visiting the team at Periscope.
-After much thought, I've decided to accept offer at another company. It was really a tough call for me since I really like the product, role and people I met during my visit. 
-Again, I cannot thank you enough for your time, and support. It's been a great pleasure to know you and the team. I hope that we cross paths in the near future.
-
-Wish you, teams, and Periscope all the success.
-
-Regards,
-Jerry
-
-
-
-
-Hi Cynthia
-
-Thank your for patience and support along the way.
-I very much appreciate that you took the time answering many of my questions about the Periscope, and role.
-
-After much thought, I've decided to accept offer at another company. It was really a tough call for me since I really like the product and people I met during my visit.
- 
-Again, I cannot thank you enough for your time, and support. It's been a great pleasure to know you and the team. I hope that we cross paths in the near future.
-
-Wish you, teams, and Periscope all the success.
-
-Regards,
-Jerry
