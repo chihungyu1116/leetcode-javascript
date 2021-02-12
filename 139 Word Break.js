@@ -1,6 +1,6 @@
 /**
  * @param {string} s
- * @param {set<string>} wordDict
+ * @param {set<string>} wordDict changed to @param {string[]} wordDict
  *   Note: wordDict is a Set object, see:
  *   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
  * @return {boolean}
@@ -17,7 +17,7 @@ var wordBreak = function(s, wordDict) {
         if(possible[i]) {
             for(var j = i + 1; j <= s.length; j++) {
                 var str = s.substring(i, j);
-                if(wordDict.has(str)) {
+                if(wordDict.includes(str)) {
                     possible[j] = true;
                 }
             }
