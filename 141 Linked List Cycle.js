@@ -62,7 +62,7 @@ var hasCycle = function(head) {
     node2 = node2.next;
     
     while(node1 !== null && node2 !== null) {
-        if (node1.val === node2.val) {
+        if (node1 === node2) {
             return true;
         }
 
